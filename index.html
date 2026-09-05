@@ -99,6 +99,25 @@
         body {
             background-color: var(--bg-base);
             overscroll-behavior: none;
+            /* Safe area for notched phones */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        /* Mobile-first header layout helpers */
+        @media (max-width: 639px) {
+            .mobile-header-grid {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                gap: 0.35rem 0.5rem;
+                align-items: center;
+            }
+            .mobile-header-grid .logo-block { grid-column: 1; grid-row: 1; }
+            .mobile-header-grid .mode-block { grid-column: 2; grid-row: 1; justify-self: end; }
+            .mobile-header-grid .stats-actions-block { grid-column: 1 / -1; grid-row: 2; }
         }
 
         .glass-panel {
@@ -147,10 +166,29 @@
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.2); }
         ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.4); border-radius: 9999px; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Extra compact on very small phones */
+        @media (max-width: 360px) {
+            header { font-size: 0.7rem; }
+            #canvas-container { border-radius: 0.75rem; }
+        }
+
+        /* Ensure canvas area gets maximum available height on mobile */
+        @media (max-width: 1023px) {
+            main {
+                min-height: 0;
+            }
+            #canvas-container {
+                min-height: 280px;
+            }
+        }
     </style>
 </head>
 
-<body class="h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between items-center p-2 sm:p-3 overflow-hidden relative font-sans">
+<body class="h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between items-center p-1.5 sm:p-3 overflow-hidden relative font-sans">
     
     <!-- Session Restored Toast Notification -->
     <div id="session-toast" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border border-emerald-500/40 text-emerald-300 font-mono text-[10px] sm:text-xs shadow-xl opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
@@ -165,39 +203,41 @@
     </div>
 
     <!-- Top Navigation Header with Game Mode Switcher -->
-    <header class="w-full max-w-5xl flex items-center justify-between gap-2 mb-1 px-1 sm:px-2 z-10 shrink-0">
+    <header class="w-full max-w-5xl mobile-header-grid sm:flex sm:items-center sm:justify-between sm:gap-2 mb-1 px-1 sm:px-2 z-10 shrink-0">
         <!-- Logo & Core Status -->
-        <div class="flex items-center gap-2 sm:gap-3">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-400 p-[1px] shadow-md shadow-rose-500/20 shrink-0">
-                <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-                    <i data-lucide="layers" class="w-4 h-4 sm:w-5 sm:h-5 text-rose-400"></i>
+        <div class="logo-block flex items-center gap-1.5 sm:gap-3 min-w-0">
+            <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-400 p-[1px] shadow-md shadow-rose-500/20 shrink-0">
+                <div class="w-full h-full bg-slate-950 rounded-[7px] sm:rounded-[11px] flex items-center justify-center">
+                    <i data-lucide="layers" class="w-3.5 h-3.5 sm:w-5 sm:h-5 text-rose-400"></i>
                 </div>
             </div>
-            <div class="flex flex-col">
-                <div class="flex items-center gap-1.5">
-                    <span class="text-[9px] sm:text-[10px] tracking-widest font-mono uppercase text-rose-400 font-semibold">CORE V4</span>
-                    <span id="cloud-sync-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Auto-save Active"></span>
+            <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-1">
+                    <span class="text-[8px] sm:text-[10px] tracking-widest font-mono uppercase text-rose-400 font-semibold">CORE V4</span>
+                    <span id="cloud-sync-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" title="Auto-save Active"></span>
                 </div>
-                <h1 class="text-xs sm:text-base md:text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                <h1 class="text-[11px] sm:text-base md:text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent truncate">
                     FRUIT <span class="text-rose-500">//</span> MERGE
                 </h1>
             </div>
         </div>
 
-        <!-- Mode Switcher Pill Group -->
-        <div class="flex items-center p-0.5 rounded-xl glass-card text-[9px] sm:text-xs font-mono">
-            <button id="btn-mode-classic" class="px-2 py-1 rounded-lg font-bold bg-rose-600 text-white transition-colors">Classic</button>
-            <button id="btn-mode-blitz" class="px-2 py-1 rounded-lg font-bold text-slate-400 hover:text-white transition-colors">Blitz</button>
-            <button id="btn-mode-zen" class="px-2 py-1 rounded-lg font-bold text-slate-400 hover:text-white transition-colors">Zen</button>
+        <!-- Mode Switcher + Blitz Timer (grouped for mobile) -->
+        <div class="mode-block flex items-center gap-1.5">
+            <div class="flex items-center p-0.5 rounded-lg sm:rounded-xl glass-card text-[8px] sm:text-xs font-mono">
+                <button id="btn-mode-classic" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold bg-rose-600 text-white transition-colors">Classic</button>
+                <button id="btn-mode-blitz" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold text-slate-400 hover:text-white transition-colors">Blitz</button>
+                <button id="btn-mode-zen" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold text-slate-400 hover:text-white transition-colors">Zen</button>
+            </div>
+
+            <!-- Blitz Mode Countdown Pill -->
+            <div id="blitz-timer-pill" class="hidden items-center gap-1 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl glass-card font-mono text-[10px] sm:text-xs border border-amber-500/40 text-amber-300">
+                <i data-lucide="timer" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                <span id="blitz-timer-display" class="font-bold">01:30</span>
+            </div>
         </div>
 
-        <!-- Blitz Mode Countdown Pill -->
-        <div id="blitz-timer-pill" class="hidden items-center gap-1.5 px-2.5 py-1 rounded-xl glass-card font-mono text-xs border border-amber-500/40 text-amber-300">
-            <i data-lucide="timer" class="w-3.5 h-3.5"></i>
-            <span id="blitz-timer-display" class="font-bold">01:30</span>
-        </div>
-
-        <!-- Watermelon Synthesis Progress Bar -->
+        <!-- Watermelon Synthesis Progress Bar (desktop only) -->
         <div class="hidden md:flex flex-col items-center justify-center px-3 py-1 glass-card rounded-xl w-36">
             <div class="flex items-center justify-between w-full text-[9px] font-mono mb-1 text-slate-300">
                 <span class="flex items-center gap-1"><i data-lucide="sparkles" class="w-2.5 h-2.5 text-emerald-400"></i> MELON</span>
@@ -208,49 +248,53 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-1.5 sm:gap-2">
-            <!-- Score Card with Combo Multiplier Pill -->
-            <div class="glass-card px-2.5 sm:px-3 py-1 rounded-xl flex flex-col items-center min-w-[70px] sm:min-w-[84px] relative">
-                <div class="flex items-center gap-1">
-                    <span class="text-[8px] sm:text-[9px] font-mono tracking-wider text-slate-400 uppercase">SCORE</span>
-                    <span id="combo-multiplier-pill" class="hidden text-[8px] font-mono font-bold px-1 rounded bg-amber-500/25 text-amber-300 border border-amber-500/40">1x</span>
+        <!-- Stats + Actions row (full width on mobile) -->
+        <div class="stats-actions-block flex items-center justify-between sm:justify-end gap-1 sm:gap-2 w-full sm:w-auto">
+            <!-- Score + Best condensed -->
+            <div class="flex items-center gap-1 sm:gap-1.5">
+                <!-- Score Card -->
+                <div class="glass-card px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-xl flex flex-col items-center min-w-[58px] sm:min-w-[84px] relative">
+                    <div class="flex items-center gap-0.5">
+                        <span class="text-[7px] sm:text-[9px] font-mono tracking-wider text-slate-400 uppercase">SCORE</span>
+                        <span id="combo-multiplier-pill" class="hidden text-[7px] sm:text-[8px] font-mono font-bold px-0.5 sm:px-1 rounded bg-amber-500/25 text-amber-300 border border-amber-500/40">1x</span>
+                    </div>
+                    <span id="score-display" class="font-mono text-[11px] sm:text-base font-bold text-white tracking-tight leading-tight">0</span>
                 </div>
-                <span id="score-display" class="font-mono text-xs sm:text-base font-bold text-white tracking-tight">0</span>
+
+                <!-- Best Score Card -->
+                <div class="glass-card px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-xl flex flex-col items-center min-w-[52px] sm:min-w-[76px]">
+                    <span class="text-[7px] sm:text-[9px] font-mono tracking-wider text-amber-400 uppercase flex items-center gap-0.5">
+                        <i data-lucide="crown" class="w-2 h-2 sm:w-2.5 sm:h-2.5"></i> BEST
+                    </span>
+                    <span id="best-score-display" class="font-mono text-[11px] sm:text-base font-bold text-amber-300 tracking-tight leading-tight">0</span>
+                </div>
             </div>
 
-            <!-- Best Score Card -->
-            <div class="glass-card px-2 sm:px-3 py-1 rounded-xl flex flex-col items-center min-w-[62px] sm:min-w-[76px]">
-                <span class="text-[8px] sm:text-[9px] font-mono tracking-wider text-amber-400 uppercase flex items-center gap-1">
-                    <i data-lucide="crown" class="w-2.5 h-2.5"></i> BEST
-                </span>
-                <span id="best-score-display" class="font-mono text-xs sm:text-base font-bold text-amber-300 tracking-tight">0</span>
-            </div>
-
-            <!-- Header Action Controls -->
-            <div class="flex items-center gap-1">
-                <button id="btn-fullscreen" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle Fullscreen [F]">
+            <!-- Header Action Controls - tighter on mobile, hide less critical on very small -->
+            <div class="flex items-center gap-0.5 sm:gap-1">
+                <button id="btn-fullscreen" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle Fullscreen [F]">
                     <i id="icon-fullscreen" data-lucide="maximize" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-bgm" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-slate-800 text-slate-400 hover:text-white transition-colors active:scale-95" title="Ambient Music">
+                <button id="btn-bgm" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-400 hover:text-white transition-colors active:scale-95" title="Ambient Music">
                     <i id="icon-bgm" data-lucide="music" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-sound" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle SFX">
+                <button id="btn-sound" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle SFX">
                     <i id="icon-sound" data-lucide="volume-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-theme" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Palette">
+                <button id="btn-theme" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Palette">
                     <i data-lucide="palette" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-codex" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Codex">
+                <button id="btn-codex" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Codex">
                     <i data-lucide="book-open" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-restart" class="p-1.5 sm:p-2 rounded-xl glass-card hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border-rose-500/20 transition-colors active:scale-95" title="Restart">
+                <button id="btn-restart" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border-rose-500/20 transition-colors active:scale-95" title="Restart">
                     <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="w-full max-w-5xl flex-1 flex flex-col lg:flex-row items-center justify-center gap-2 sm:gap-3 relative min-h-0 z-10 overflow-hidden">
+    <main class="w-full max-w-5xl flex-1 flex flex-col lg:flex-row items-center justify-center gap-1.5 sm:gap-3 relative min-h-0 z-10 overflow-hidden">
         
         <!-- Desktop Left Sidebar: Hold Slot & Tactical Tools -->
         <aside class="hidden lg:flex flex-col gap-2 w-48 shrink-0">
@@ -330,39 +374,60 @@
             </div>
         </aside>
 
-        <div class="relative flex flex-col items-center justify-center w-full h-full max-w-[420px] min-w-[280px] flex-1">
+        <div class="relative flex flex-col items-center justify-center w-full h-full max-w-[420px] min-w-0 sm:min-w-[280px] flex-1">
             
             <!-- Mobile Compact HUD -->
-            <div class="lg:hidden w-full flex items-center justify-between px-2 py-1 mb-1 glass-card rounded-xl gap-1 text-xs shrink-0">
-                <button id="btn-mobile-hold" class="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300 active:scale-95">
-                    <canvas id="hold-canvas-mobile" width="20" height="20" class="w-5 h-5"></canvas>
-                    <span>HOLD</span>
-                </button>
+            <div class="lg:hidden w-full flex flex-col gap-1 mb-1 shrink-0">
+                <!-- Top row: Hold + Next + Melon progress -->
+                <div class="w-full flex items-center justify-between px-1.5 py-1 glass-card rounded-xl gap-1.5">
+                    <button id="btn-mobile-hold" class="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[9px] font-mono text-slate-300 active:scale-95 shrink-0">
+                        <canvas id="hold-canvas-mobile" width="20" height="20" class="w-5 h-5"></canvas>
+                        <span>HOLD</span>
+                    </button>
 
-                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-slate-900 border border-slate-800/70">
-                    <span class="text-[9px] font-mono uppercase text-slate-400">NEXT:</span>
-                    <canvas id="next-canvas-mobile-1" width="20" height="20" class="w-5 h-5"></canvas>
-                    <canvas id="next-canvas-mobile-2" width="16" height="16" class="w-4 h-4 opacity-70"></canvas>
+                    <div class="flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-slate-900 border border-slate-800/70 min-w-0">
+                        <span class="text-[8px] font-mono uppercase text-slate-400 shrink-0">NEXT</span>
+                        <canvas id="next-canvas-mobile-1" width="20" height="20" class="w-5 h-5 shrink-0"></canvas>
+                        <canvas id="next-canvas-mobile-2" width="16" height="16" class="w-4 h-4 opacity-70 shrink-0"></canvas>
+                    </div>
+
+                    <!-- Mobile Melon progress (compact) -->
+                    <div class="flex flex-col items-end min-w-[52px] shrink-0">
+                        <div class="flex items-center gap-0.5 text-[8px] font-mono text-emerald-400">
+                            <i data-lucide="sparkles" class="w-2.5 h-2.5"></i>
+                            <span id="watermelon-progress-text-mobile" class="font-bold">0%</span>
+                        </div>
+                        <div class="w-12 bg-slate-900 h-1 rounded-full overflow-hidden mt-0.5">
+                            <div id="watermelon-progress-bar-mobile" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300 w-0"></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-1">
-                    <button id="btn-mobile-undo" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-sky-400 active:scale-95" title="Undo">
-                        <i data-lucide="undo-2" class="w-3.5 h-3.5"></i>
+                <!-- Tools row - scrollable if needed, evenly spaced -->
+                <div class="w-full flex items-center justify-between px-1 py-1 glass-card rounded-xl gap-0.5 overflow-x-auto no-scrollbar">
+                    <button id="btn-mobile-undo" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-sky-400 active:scale-95" title="Undo">
+                        <i data-lucide="undo-2" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Undo</span>
                     </button>
-                    <button id="btn-mobile-nudge" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-amber-400 active:scale-95" title="Nudge">
-                        <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+                    <button id="btn-mobile-nudge" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-amber-400 active:scale-95" title="Nudge">
+                        <i data-lucide="activity" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Jostle</span>
                     </button>
-                    <button id="btn-mobile-magnet" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-purple-400 active:scale-95" title="Magnet">
-                        <i data-lucide="magnet" class="w-3.5 h-3.5"></i>
+                    <button id="btn-mobile-magnet" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-purple-400 active:scale-95" title="Magnet">
+                        <i data-lucide="magnet" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Magnet</span>
                     </button>
-                    <button id="btn-mobile-slice" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-rose-400 active:scale-95" title="Slice">
-                        <i data-lucide="scissors" class="w-3.5 h-3.5"></i>
+                    <button id="btn-mobile-slice" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-rose-400 active:scale-95" title="Slice">
+                        <i data-lucide="scissors" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Slice</span>
                     </button>
-                    <button id="btn-mobile-bomb" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-orange-400 active:scale-95" title="Bomb">
-                        <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                    <button id="btn-mobile-bomb" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-orange-400 active:scale-95" title="Bomb">
+                        <i data-lucide="flame" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Bomb</span>
                     </button>
-                    <button id="btn-mobile-wildcard" class="p-1 rounded-lg bg-slate-900 border border-slate-800 text-fuchsia-400 active:scale-95" title="Wildcard">
-                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <button id="btn-mobile-wildcard" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-fuchsia-400 active:scale-95" title="Wildcard">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span class="text-[7px] font-mono mt-0.5 opacity-80">Wild</span>
                     </button>
                 </div>
             </div>
@@ -449,22 +514,25 @@
     </main>
 
     <!-- Footer Controls -->
-    <footer class="w-full max-w-5xl py-1 px-2 flex items-center justify-between text-xs text-slate-500 z-10 shrink-0">
-        <div class="flex items-center gap-1.5">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span class="font-mono text-[9px] sm:text-[10px]">ULTRA 60FPS ENGINE</span>
+    <footer class="w-full max-w-5xl py-0.5 sm:py-1 px-1.5 sm:px-2 flex items-center justify-between text-xs text-slate-500 z-10 shrink-0">
+        <div class="flex items-center gap-1 sm:gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500"></span>
+            <span class="font-mono text-[8px] sm:text-[10px]">60FPS</span>
         </div>
-        <button id="btn-gyro-toggle" class="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono text-slate-400 hover:text-slate-200 px-2 py-0.5 rounded bg-slate-900 border border-slate-800" title="Device tilt gravity">
+        <button id="btn-gyro-toggle" class="flex items-center gap-1 text-[8px] sm:text-[10px] font-mono text-slate-400 hover:text-slate-200 px-1.5 sm:px-2 py-0.5 rounded bg-slate-900 border border-slate-800" title="Device tilt gravity">
             <i data-lucide="smartphone" class="w-2.5 h-2.5"></i> TILT: <span id="gyro-status">OFF</span>
         </button>
-        <div class="text-[9px] sm:text-[10px] font-mono text-slate-500 hidden sm:block">
+        <div class="text-[8px] sm:text-[10px] font-mono text-slate-500 hidden sm:block">
             DRAG & RELEASE • [SPACE] HOLD • [Z] UNDO • [N] JOSTLE • [M] MAGNET
+        </div>
+        <div class="text-[8px] font-mono text-slate-500 sm:hidden">
+            TAP TO DROP
         </div>
     </footer>
 
     <!-- Game Over Modal -->
-    <div id="game-over-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
-        <div class="w-full max-w-sm glass-panel p-5 rounded-3xl border border-slate-700 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-200">
+    <div id="game-over-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="w-full max-w-sm glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-200 max-h-[90dvh] overflow-y-auto">
             <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center justify-center mb-1.5">
                 <i data-lucide="alert-octagon" class="w-6 h-6"></i>
             </div>
@@ -1749,8 +1817,15 @@
                 }
             }
             const pct = Math.min(100, Math.round((maxTier / 10) * 100));
-            document.getElementById('watermelon-progress-text').textContent = `${pct}%`;
-            document.getElementById('watermelon-progress-bar').style.width = `${pct}%`;
+            const textEl = document.getElementById('watermelon-progress-text');
+            const barEl = document.getElementById('watermelon-progress-bar');
+            if (textEl) textEl.textContent = `${pct}%`;
+            if (barEl) barEl.style.width = `${pct}%`;
+            // Mobile compact progress
+            const textMobile = document.getElementById('watermelon-progress-text-mobile');
+            const barMobile = document.getElementById('watermelon-progress-bar-mobile');
+            if (textMobile) textMobile.textContent = `${pct}%`;
+            if (barMobile) barMobile.style.width = `${pct}%`;
         }
 
         function triggerHold() {
@@ -2508,9 +2583,9 @@
             if (gameMode === mode) return;
             gameMode = mode;
 
-            document.getElementById('btn-mode-classic').className = `px-2 py-1 rounded-lg font-bold transition-colors ${mode === 'classic' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`;
-            document.getElementById('btn-mode-blitz').className = `px-2 py-1 rounded-lg font-bold transition-colors ${mode === 'blitz' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'}`;
-            document.getElementById('btn-mode-zen').className = `px-2 py-1 rounded-lg font-bold transition-colors ${mode === 'zen' ? 'bg-emerald-600 text-white' : 'text-slate-400 hover:text-white'}`;
+            document.getElementById('btn-mode-classic').className = `px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold transition-colors ${mode === 'classic' ? 'bg-rose-600 text-white' : 'text-slate-400 hover:text-white'}`;
+            document.getElementById('btn-mode-blitz').className = `px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold transition-colors ${mode === 'blitz' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'}`;
+            document.getElementById('btn-mode-zen').className = `px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold transition-colors ${mode === 'zen' ? 'bg-emerald-600 text-white' : 'text-slate-400 hover:text-white'}`;
 
             const dangerLine = document.getElementById('danger-line');
             const blitzHUD = document.getElementById('blitz-timer-pill');
