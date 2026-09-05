@@ -674,6 +674,17 @@
         </div>
     </div>
 
+    <!-- Fruit Preview Popup (Evolution roadmap click) -->
+    <div id="fruit-preview-popup" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-sm">
+        <div id="fruit-preview-card" class="glass-panel p-4 rounded-2xl border border-slate-700 flex flex-col items-center shadow-2xl transform scale-95 transition-transform duration-200 w-[180px] sm:w-[200px]">
+            <canvas id="fruit-preview-canvas" width="112" height="112" class="w-28 h-28 mb-2 rounded-xl"></canvas>
+            <div id="fruit-preview-name" class="text-sm font-bold text-white mb-0.5">Cherry</div>
+            <div id="fruit-preview-tier" class="text-[10px] font-mono text-slate-400 mb-1">Tier 1</div>
+            <div id="fruit-preview-info" class="text-[9px] font-mono text-slate-500 text-center leading-tight">Radius · Yield</div>
+            <button id="close-fruit-preview" class="mt-3 w-full py-1.5 rounded-xl glass-card text-xs font-medium text-slate-300 hover:text-white active:scale-95 transition-colors">Close</button>
+        </div>
+    </div>
+
     <!-- Theme Palette Selector Modal -->
     <div id="theme-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-md">
         <div class="w-full max-w-sm glass-panel p-4 rounded-3xl border border-slate-700 flex flex-col shadow-2xl">
@@ -2633,6 +2644,7 @@
                 } else if (e.code === 'Escape') {
                     if (isSlicerActive) cancelSlicerMode();
                     if (isBombActive) cancelBombMode();
+                    closeFruitPreview();
                 }
             });
 
@@ -3229,6 +3241,49 @@
             ctxTarget.restore();
         }
 
+        function showFruitPreview(tierIndex) {
+            const popup = document.getElementById('fruit-preview-popup');
+            const card = document.getElementById('fruit-preview-card');
+            const canvas = document.getElementById('fruit-preview-canvas');
+            const nameEl = document.getElementById('fruit-preview-name');
+            const tierEl = document.getElementById('fruit-preview-tier');
+            const infoEl = document.getElementById('fruit-preview-info');
+            if (!popup || !canvas || !FRUIT_TIERS[tierIndex]) return;
+
+            const tier = FRUIT_TIERS[tierIndex];
+            const isUnlocked = stats.unlockedTiers.includes(tierIndex);
+            const previewCtx = canvas.getContext('2d');
+
+            previewCtx.clearRect(0, 0, canvas.width, canvas.height);
+            if (isUnlocked) {
+                drawSpriteOnContext(previewCtx, canvas.width, canvas.height, tierIndex);
+                nameEl.textContent = tier.name;
+                nameEl.classList.remove('text-slate-500');
+                nameEl.classList.add('text-white');
+            } else {
+                drawLockedIcon(previewCtx, canvas.width);
+                nameEl.textContent = `Tier ${tier.tier + 1}`;
+                nameEl.classList.remove('text-white');
+                nameEl.classList.add('text-slate-500');
+            }
+
+            tierEl.textContent = isUnlocked ? `Tier ${tier.tier + 1} · Unlocked` : `Tier ${tier.tier + 1} · Locked`;
+            infoEl.textContent = isUnlocked
+                ? `Radius ${tier.radius}px · Yield +${tier.score * 2}`
+                : 'Discover by merging';
+
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            if (card) card.classList.remove('scale-95');
+        }
+
+        function closeFruitPreview() {
+            const popup = document.getElementById('fruit-preview-popup');
+            const card = document.getElementById('fruit-preview-card');
+            if (!popup) return;
+            popup.classList.add('opacity-0', 'pointer-events-none');
+            if (card) card.classList.add('scale-95');
+        }
+
         function buildRoadmapUI() {
             const listEl = document.getElementById('roadmap-list');
             if (!listEl) return;
@@ -3293,12 +3348,7 @@
                 row.appendChild(rightCol);
 
                 row.addEventListener('click', () => {
-                    const bodies = Composite.allBodies(world);
-                    bodies.forEach(b => {
-                        if (b.fruitData && b.fruitData.tier === tier.tier) {
-                            Body.applyForce(b, b.position, { x: 0, y: -0.015 * b.mass });
-                        }
-                    });
+                    showFruitPreview(tier.tier);
                 });
 
                 listEl.appendChild(row);
@@ -3747,6 +3797,21 @@
             themeModal.addEventListener('click', (e) => {
                 if (e.target === themeModal) themeModal.classList.add('opacity-0', 'pointer-events-none');
             });
+
+            // Fruit preview popup (evolution roadmap)
+            const fruitPreviewPopup = document.getElementById('fruit-preview-popup');
+            const closeFruitPreviewBtn = document.getElementById('close-fruit-preview');
+            if (closeFruitPreviewBtn) {
+                closeFruitPreviewBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeFruitPreview();
+                });
+            }
+            if (fruitPreviewPopup) {
+                fruitPreviewPopup.addEventListener('click', (e) => {
+                    if (e.target === fruitPreviewPopup) closeFruitPreview();
+                });
+            }
 
             window.addEventListener('resize', resizeCanvas);
             syncAudioIcons();
