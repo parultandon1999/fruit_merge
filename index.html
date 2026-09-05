@@ -1601,6 +1601,7 @@
       THEMES.forEach(t => document.body.classList.remove(`theme-${t}`));
       document.body.classList.add(`theme-${themeName}`);
       localStorage.setItem('fruit_merge_theme_v5', themeName);
+      refreshThemeCaches();
       renderCodex();
       renderBountiesUI();
       updateTrophyBadges();
@@ -1743,8 +1744,10 @@
 
     function initPhysics() {
       engine = Engine.create({
-        enableSleeping: false,
-        gravity: { x: 0, y: NORMAL_GRAVITY, scale: 0.001 }
+        enableSleeping: true,
+        gravity: { x: 0, y: NORMAL_GRAVITY, scale: 0.001 },
+        positionIterations: 6,
+        velocityIterations: 4
       });
       world = engine.world;
 
@@ -1793,6 +1796,7 @@
     }
 
     /* Laboratory Physics Modifiers */
+    let _attractFrameSkip = 0;
     function applyPhysicsModifiers() {
       if (isGameOver || isPaused) return;
 
@@ -1804,28 +1808,31 @@
 
       const bodies = Composite.allBodies(world).filter(b => !b.isStatic && b.fruitData);
 
-      // Grav-Attract
+      // Grav-Attract — run every other frame and early-out when crowded
       if (labOverclocks.gravAttract) {
-        for (let i = 0; i < bodies.length; i++) {
-          for (let j = i + 1; j < bodies.length; j++) {
-            const b1 = bodies[i];
-            const b2 = bodies[j];
-            if (b1.fruitData.tier === b2.fruitData.tier || b1.fruitData.isRainbow || b2.fruitData.isRainbow) {
-              const dx = b2.position.x - b1.position.x;
-              const dy = b2.position.y - b1.position.y;
-              const distSq = dx * dx + dy * dy;
-              const r1 = b1.fruitData.isRainbow ? RAINBOW_SPECIMEN.radius : FRUITS[b1.fruitData.tier].radius;
-              const r2 = b2.fruitData.isRainbow ? RAINBOW_SPECIMEN.radius : FRUITS[b2.fruitData.tier].radius;
-              const radiusSum = r1 + r2;
-              const maxRange = radiusSum * 2.8;
+        _attractFrameSkip = (_attractFrameSkip + 1) % 2;
+        if (_attractFrameSkip === 0 && bodies.length < 36) {
+          for (let i = 0; i < bodies.length; i++) {
+            for (let j = i + 1; j < bodies.length; j++) {
+              const b1 = bodies[i];
+              const b2 = bodies[j];
+              if (b1.fruitData.tier === b2.fruitData.tier || b1.fruitData.isRainbow || b2.fruitData.isRainbow) {
+                const dx = b2.position.x - b1.position.x;
+                const dy = b2.position.y - b1.position.y;
+                const distSq = dx * dx + dy * dy;
+                const r1 = b1.fruitData.isRainbow ? RAINBOW_SPECIMEN.radius : FRUITS[b1.fruitData.tier].radius;
+                const r2 = b2.fruitData.isRainbow ? RAINBOW_SPECIMEN.radius : FRUITS[b2.fruitData.tier].radius;
+                const radiusSum = r1 + r2;
+                const maxRange = radiusSum * 2.6;
 
-              if (distSq < maxRange * maxRange && distSq > radiusSum * radiusSum * 0.8) {
-                const dist = Math.sqrt(distSq);
-                const forceMag = (0.00004 * (b1.fruitData.tier + 1)) / (dist * 0.1 + 1);
-                const fx = (dx / dist) * forceMag;
-                const fy = (dy / dist) * forceMag;
-                Body.applyForce(b1, b1.position, { x: fx, y: fy });
-                Body.applyForce(b2, b2.position, { x: -fx, y: -fy });
+                if (distSq < maxRange * maxRange && distSq > radiusSum * radiusSum * 0.85) {
+                  const dist = Math.sqrt(distSq);
+                  const forceMag = (0.000035 * (b1.fruitData.tier + 1)) / (dist * 0.1 + 1);
+                  const fx = (dx / dist) * forceMag;
+                  const fy = (dy / dist) * forceMag;
+                  Body.applyForce(b1, b1.position, { x: fx, y: fy });
+                  Body.applyForce(b2, b2.position, { x: -fx, y: -fy });
+                }
               }
             }
           }
@@ -2580,29 +2587,55 @@
       }
     }
 
-    function drawModernFruitGraphic(ctx, x, y, radius, tier, isRainbow = false) {
-      // SPECIAL CASE: Wild Rainbow Specimen
+    /* Pre-rendered fruit sprites for major performance gain */
+    const fruitSpriteCache = []; // index by tier, holds {canvas, size}
+    let rainbowSpriteCanvas = null;
+    let rainbowSpriteSize = 0;
+    let spritesReady = false;
+
+    function buildFruitSprites() {
+      const PAD = 4;
+      for (let tier = 0; tier < FRUITS.length; tier++) {
+        const r = FRUITS[tier].radius;
+        const size = Math.ceil(r * 2 + PAD * 2);
+        const off = document.createElement('canvas');
+        off.width = size;
+        off.height = size;
+        const octx = off.getContext('2d');
+        // Draw at center without rotation/squash
+        drawModernFruitGraphicRaw(octx, size / 2, size / 2, r, tier, false);
+        fruitSpriteCache[tier] = { canvas: off, size, radius: r };
+      }
+      // Rainbow base (static version; animation applied lightly at runtime)
+      const rr = RAINBOW_SPECIMEN.radius;
+      const rsize = Math.ceil(rr * 2 + PAD * 2);
+      rainbowSpriteCanvas = document.createElement('canvas');
+      rainbowSpriteCanvas.width = rsize;
+      rainbowSpriteCanvas.height = rsize;
+      rainbowSpriteSize = rsize;
+      const rctx = rainbowSpriteCanvas.getContext('2d');
+      drawModernFruitGraphicRaw(rctx, rsize / 2, rsize / 2, rr, 0, true);
+      spritesReady = true;
+    }
+
+    // Raw drawer used both for cache and fallback
+    function drawModernFruitGraphicRaw(ctx, x, y, radius, tier, isRainbow = false) {
       if (isRainbow) {
         ctx.save();
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
-
-        const rainbowGrad = ctx.createConicGradient(Date.now() * 0.002, x, y);
+        // Static multi-stop gradient instead of animated conic every frame
+        const rainbowGrad = ctx.createRadialGradient(x - radius * 0.2, y - radius * 0.2, 0, x, y, radius);
         rainbowGrad.addColorStop(0, '#f43f5e');
-        rainbowGrad.addColorStop(0.2, '#eab308');
-        rainbowGrad.addColorStop(0.4, '#10b981');
-        rainbowGrad.addColorStop(0.6, '#06b6d4');
-        rainbowGrad.addColorStop(0.8, '#8b5cf6');
-        rainbowGrad.addColorStop(1, '#f43f5e');
-
+        rainbowGrad.addColorStop(0.25, '#eab308');
+        rainbowGrad.addColorStop(0.5, '#10b981');
+        rainbowGrad.addColorStop(0.75, '#06b6d4');
+        rainbowGrad.addColorStop(1, '#8b5cf6');
         ctx.fillStyle = rainbowGrad;
         ctx.fill();
-
         ctx.strokeStyle = '#ffffff';
         ctx.lineWidth = 2.5;
         ctx.stroke();
-
-        // Inner star prism symbol
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
         ctx.arc(x, y, radius * 0.35, 0, Math.PI * 2);
@@ -2795,33 +2828,74 @@
       ctx.fill();
     }
 
+    // Fast path: draw from pre-rendered sprite (huge win)
+    function drawModernFruitGraphic(ctx, x, y, radius, tier, isRainbow = false) {
+      if (spritesReady) {
+        if (isRainbow && rainbowSpriteCanvas) {
+          const s = rainbowSpriteSize;
+          ctx.drawImage(rainbowSpriteCanvas, x - radius, y - radius, radius * 2, radius * 2);
+          return;
+        }
+        const spr = fruitSpriteCache[tier];
+        if (spr) {
+          ctx.drawImage(spr.canvas, x - radius, y - radius, radius * 2, radius * 2);
+          return;
+        }
+      }
+      // Fallback while sprites build
+      drawModernFruitGraphicRaw(ctx, x, y, radius, tier, isRainbow);
+    }
+
+    // Cached theme colors (updated only on theme change)
+    let cachedShadowColor = 'rgba(0, 0, 0, 0.35)';
+    let cachedBgStart = '#141a23';
+    let cachedBgMid = '#0f141c';
+    let cachedBgEnd = '#0a0d12';
+    let cachedFloorStart = '#1c2430';
+    let cachedFloorEnd = '#0e1217';
+    let cachedCanvasBorder = 'rgba(255, 255, 255, 0.15)';
+    let cachedDangerLine = 'rgba(255, 255, 255, 0.12)';
+    let cachedLaser = 'rgba(255, 255, 255, 0.25)';
+    let cachedTextShadow = 'rgba(0, 0, 0, 0.7)';
+
+    function refreshThemeCaches() {
+      const cs = getComputedStyle(document.body);
+      cachedShadowColor = cs.getPropertyValue('--canvas-shadow').trim() || 'rgba(0, 0, 0, 0.35)';
+      cachedBgStart = cs.getPropertyValue('--canvas-bg-start').trim() || '#141a23';
+      cachedBgMid = cs.getPropertyValue('--canvas-bg-mid').trim() || '#0f141c';
+      cachedBgEnd = cs.getPropertyValue('--canvas-bg-end').trim() || '#0a0d12';
+      cachedFloorStart = cs.getPropertyValue('--canvas-floor-start').trim() || '#1c2430';
+      cachedFloorEnd = cs.getPropertyValue('--canvas-floor-end').trim() || '#0e1217';
+      cachedCanvasBorder = cs.getPropertyValue('--canvas-border').trim() || 'rgba(255, 255, 255, 0.15)';
+      cachedDangerLine = cs.getPropertyValue('--canvas-danger-line').trim() || 'rgba(255, 255, 255, 0.12)';
+      cachedLaser = cs.getPropertyValue('--canvas-laser').trim() || 'rgba(255, 255, 255, 0.25)';
+      cachedTextShadow = cs.getPropertyValue('--text-shadow').trim() || 'rgba(0, 0, 0, 0.7)';
+    }
+
     function renderFruitBody(ctx, body) {
       const { position, angle, fruitData } = body;
       const radius = fruitData.isRainbow ? RAINBOW_SPECIMEN.radius : FRUITS[fruitData.tier].radius;
-      const computedStyle = getComputedStyle(document.body);
 
       if (fruitData.squashFactor > 1.0) {
-        fruitData.squashFactor -= 0.03;
+        fruitData.squashFactor -= 0.04;
         if (fruitData.squashFactor < 1.0) fruitData.squashFactor = 1.0;
       }
 
-      // Ground Contact Shadow
+      // Ground Contact Shadow (cheap)
       ctx.save();
       ctx.translate(position.x, position.y + radius * 0.85);
       ctx.scale(1, 0.26);
       ctx.beginPath();
       ctx.arc(0, 0, radius * 0.9, 0, Math.PI * 2);
-      const shadowColor = computedStyle.getPropertyValue('--canvas-shadow').trim() || 'rgba(0, 0, 0, 0.35)';
-      ctx.fillStyle = shadowColor;
+      ctx.fillStyle = cachedShadowColor;
       ctx.fill();
       ctx.restore();
 
-      // Render 3D Vector Body
+      // Render body from sprite
       ctx.save();
       ctx.translate(position.x, position.y);
       ctx.rotate(angle);
       ctx.scale(fruitData.squashFactor, 2 - fruitData.squashFactor);
-
       drawModernFruitGraphic(ctx, 0, 0, radius, fruitData.tier, fruitData.isRainbow);
       ctx.restore();
     }
@@ -3083,31 +3157,40 @@
       }
     }
 
-    function createMergeSplash(x, y, color, count = 20) {
-      for (let i = 0; i < count; i++) {
+    const MAX_PARTICLES = 80;
+    const MAX_SHOCKWAVES = 8;
+    const MAX_FLOATING_TEXTS = 10;
+
+    function createMergeSplash(x, y, color, count = 10) {
+      // Hard cap to prevent particle explosion lag
+      const room = Math.max(0, MAX_PARTICLES - particles.length);
+      const n = Math.min(count, room, 14);
+      for (let i = 0; i < n; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = 2.5 + Math.random() * 5;
+        const speed = 2.2 + Math.random() * 4;
         particles.push({
           x: x, y: y,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 1.2,
-          radius: 2 + Math.random() * 3,
+          vy: Math.sin(angle) * speed - 1.0,
+          radius: 1.8 + Math.random() * 2.5,
           color: color,
           alpha: 1,
-          decay: 0.02 + Math.random() * 0.025
+          decay: 0.028 + Math.random() * 0.03
         });
       }
     }
 
     function createShockwave(x, y, color, maxRadius = 60) {
+      if (shockwaves.length >= MAX_SHOCKWAVES) shockwaves.shift();
       shockwaves.push({
         x: x, y: y,
         radius: 8, maxRadius: maxRadius,
-        color: color, alpha: 0.85, lineWidth: 3.5
+        color: color, alpha: 0.8, lineWidth: 3
       });
     }
 
     function createFloatingText(text, x, y, color) {
+      if (floatingTexts.length >= MAX_FLOATING_TEXTS) floatingTexts.shift();
       floatingTexts.push({
         text: text, x: x, y: y,
         vy: -1.6, alpha: 1, color: color
@@ -3152,32 +3235,24 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, V_WIDTH, V_HEIGHT);
 
-      // Adaptive Background Fill using CSS variables
-      const computedStyle = getComputedStyle(document.body);
-      const bgStart = computedStyle.getPropertyValue('--canvas-bg-start').trim();
-      const bgMid = computedStyle.getPropertyValue('--canvas-bg-mid').trim();
-      const bgEnd = computedStyle.getPropertyValue('--canvas-bg-end').trim();
-      
+      // Background using cached theme colors (no getComputedStyle per frame)
       const stageGrad = ctx.createLinearGradient(0, 0, 0, V_HEIGHT);
-      stageGrad.addColorStop(0, bgStart || '#141a23');
-      stageGrad.addColorStop(0.5, bgMid || '#0f141c');
-      stageGrad.addColorStop(1, bgEnd || '#0a0d12');
+      stageGrad.addColorStop(0, cachedBgStart);
+      stageGrad.addColorStop(0.5, cachedBgMid);
+      stageGrad.addColorStop(1, cachedBgEnd);
       ctx.fillStyle = stageGrad;
       ctx.fillRect(0, 0, V_WIDTH, V_HEIGHT);
 
       // Stage Shelf Floor
       ctx.save();
-      const floorStart = computedStyle.getPropertyValue('--canvas-floor-start').trim();
-      const floorEnd = computedStyle.getPropertyValue('--canvas-floor-end').trim();
-      
       const floorGrad = ctx.createLinearGradient(0, FLOOR_Y, 0, V_HEIGHT);
-      floorGrad.addColorStop(0, floorStart || '#1c2430');
-      floorGrad.addColorStop(1, floorEnd || '#0e1217');
+      floorGrad.addColorStop(0, cachedFloorStart);
+      floorGrad.addColorStop(1, cachedFloorEnd);
       ctx.fillStyle = floorGrad;
       ctx.fillRect(WALL_LEFT, FLOOR_Y, WALL_RIGHT - WALL_LEFT, V_HEIGHT - FLOOR_Y);
 
       // Shelf Top Border Accent
-      ctx.strokeStyle = computedStyle.getPropertyValue('--canvas-border').trim() || 'rgba(255, 255, 255, 0.15)';
+      ctx.strokeStyle = cachedCanvasBorder;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(WALL_LEFT, FLOOR_Y);
@@ -3187,8 +3262,7 @@
 
       // Danger Boundary Line
       ctx.save();
-      const dangerLineColor = computedStyle.getPropertyValue('--canvas-danger-line').trim() || 'rgba(255, 255, 255, 0.12)';
-      ctx.strokeStyle = dangerTimer > 0 ? '#f43f5e' : dangerLineColor;
+      ctx.strokeStyle = dangerTimer > 0 ? '#f43f5e' : cachedDangerLine;
       ctx.lineWidth = 1.5;
       ctx.setLineDash([5, 5]);
       ctx.beginPath();
@@ -3209,8 +3283,7 @@
 
         if (showLaserGuide) {
           ctx.save();
-          const laserColor = computedStyle.getPropertyValue('--canvas-laser').trim() || 'rgba(255, 255, 255, 0.25)';
-          ctx.strokeStyle = laserColor;
+          ctx.strokeStyle = cachedLaser;
           ctx.lineWidth = 1.5;
           ctx.setLineDash([4, 6]);
           ctx.beginPath();
@@ -3303,8 +3376,7 @@
         ctx.font = '800 13px "JetBrains Mono", monospace';
         ctx.fillStyle = ft.color;
         ctx.textAlign = 'center';
-        const textShadow = computedStyle.getPropertyValue('--text-shadow').trim() || 'rgba(0, 0, 0, 0.7)';
-        ctx.shadowColor = textShadow;
+        ctx.shadowColor = cachedTextShadow;
         ctx.shadowBlur = 6;
         ctx.fillText(ft.text, ft.x, ft.y);
         ctx.restore();
@@ -3606,6 +3678,7 @@
 
     window.onload = function () {
       applyTheme(THEMES[currentThemeIndex]);
+      buildFruitSprites(); // pre-render all fruit graphics once
       bestScoreEl.textContent = bestScore;
       resizeCanvas(true);
       initPhysics();
