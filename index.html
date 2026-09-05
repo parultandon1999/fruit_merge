@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Fruit Merge // Pro Minimal Edition</title>
+    <title>Fruit Merge // Pro Edition</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -43,70 +44,111 @@
         }
 
         :root {
-            --bg-base: #070a12;
-            --panel-bg: #0e1424;
-            --card-bg: #141c30;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-base: #060913;
+            --panel-bg: rgba(14, 20, 36, 0.75);
+            --card-bg: rgba(20, 28, 48, 0.65);
+            --border-color: rgba(255, 255, 255, 0.09);
             --accent-glow: #f43f5e;
-            --accent-ambient: rgba(225, 29, 72, 0.12);
+            --accent-ambient: rgba(225, 29, 72, 0.15);
         }
 
         [data-theme="cyberpunk"] {
-            --bg-base: #06030c;
-            --panel-bg: #150921;
-            --card-bg: #220e35;
-            --border-color: rgba(236, 72, 153, 0.25);
+            --bg-base: #06020c;
+            --panel-bg: rgba(21, 9, 33, 0.8);
+            --card-bg: rgba(34, 14, 53, 0.7);
+            --border-color: rgba(236, 72, 153, 0.28);
             --accent-glow: #ec4899;
-            --accent-ambient: rgba(192, 38, 211, 0.24);
+            --accent-ambient: rgba(192, 38, 211, 0.25);
         }
 
         [data-theme="nordic"] {
-            --bg-base: #0b1118;
-            --panel-bg: #121924;
-            --card-bg: #1a2536;
-            --border-color: rgba(255, 255, 255, 0.12);
+            --bg-base: #080e16;
+            --panel-bg: rgba(18, 25, 36, 0.8);
+            --card-bg: rgba(26, 37, 54, 0.7);
+            --border-color: rgba(56, 189, 248, 0.22);
             --accent-glow: #38bdf8;
-            --accent-ambient: rgba(56, 189, 248, 0.16);
+            --accent-ambient: rgba(56, 189, 248, 0.18);
         }
 
         [data-theme="emerald"] {
-            --bg-base: #03120e;
-            --panel-bg: #061f18;
-            --card-bg: #0a2d23;
-            --border-color: rgba(52, 211, 153, 0.22);
+            --bg-base: #020f0b;
+            --panel-bg: rgba(6, 31, 24, 0.8);
+            --card-bg: rgba(10, 45, 35, 0.7);
+            --border-color: rgba(52, 211, 153, 0.25);
             --accent-glow: #10b981;
-            --accent-ambient: rgba(16, 185, 129, 0.20);
+            --accent-ambient: rgba(16, 185, 129, 0.22);
         }
 
         [data-theme="sunset"] {
-            --bg-base: #140807;
-            --panel-bg: #220e0a;
-            --card-bg: #331610;
-            --border-color: rgba(251, 146, 60, 0.22);
+            --bg-base: #110605;
+            --panel-bg: rgba(34, 14, 10, 0.8);
+            --card-bg: rgba(51, 22, 16, 0.7);
+            --border-color: rgba(251, 146, 60, 0.25);
             --accent-glow: #f97316;
             --accent-ambient: rgba(249, 115, 22, 0.22);
         }
 
         [data-theme="amethyst"] {
-            --bg-base: #0a0514;
-            --panel-bg: #140b26;
-            --card-bg: #20123c;
-            --border-color: rgba(192, 132, 252, 0.25);
+            --bg-base: #080410;
+            --panel-bg: rgba(20, 11, 38, 0.8);
+            --card-bg: rgba(32, 18, 60, 0.7);
+            --border-color: rgba(192, 132, 252, 0.28);
             --accent-glow: #a855f7;
-            --accent-ambient: rgba(168, 85, 247, 0.24);
+            --accent-ambient: rgba(168, 85, 247, 0.25);
         }
+
+        [data-theme="daylight"] {
+            --bg-base: #f0f4f8;
+            --panel-bg: rgba(255, 255, 255, 0.82);
+            --card-bg: rgba(255, 255, 255, 0.72);
+            --border-color: rgba(15, 23, 42, 0.12);
+            --accent-glow: #e11d48;
+            --accent-ambient: rgba(225, 29, 72, 0.12);
+        }
+
+        [data-theme="daylight"] body,
+        [data-theme="daylight"] {
+            color: #0f172a;
+        }
+
+        [data-theme="daylight"] .glass-panel,
+        [data-theme="daylight"] .glass-card {
+            box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
+        }
+
+        [data-theme="daylight"] .text-white { color: #0f172a !important; }
+        [data-theme="daylight"] .text-slate-100 { color: #1e293b !important; }
+        [data-theme="daylight"] .text-slate-200 { color: #334155 !important; }
+        [data-theme="daylight"] .text-slate-300 { color: #475569 !important; }
+        [data-theme="daylight"] .text-slate-400 { color: #64748b !important; }
+        [data-theme="daylight"] .text-slate-500 { color: #94a3b8 !important; }
+        [data-theme="daylight"] .bg-slate-950 { background-color: #e2e8f0 !important; }
+        [data-theme="daylight"] .bg-slate-900 { background-color: #f1f5f9 !important; }
+        [data-theme="daylight"] .bg-slate-900\/90 { background-color: rgba(241, 245, 249, 0.9) !important; }
+        [data-theme="daylight"] .bg-slate-900\/80 { background-color: rgba(241, 245, 249, 0.8) !important; }
+        [data-theme="daylight"] .bg-slate-950\/80 { background-color: rgba(226, 232, 240, 0.85) !important; }
+        [data-theme="daylight"] .bg-slate-950\/60 { background-color: rgba(226, 232, 240, 0.65) !important; }
+        [data-theme="daylight"] .bg-slate-950\/50 { background-color: rgba(226, 232, 240, 0.55) !important; }
+        [data-theme="daylight"] .border-slate-800 { border-color: rgba(148, 163, 184, 0.45) !important; }
+        [data-theme="daylight"] .border-slate-800\/80 { border-color: rgba(148, 163, 184, 0.35) !important; }
+        [data-theme="daylight"] .border-slate-700 { border-color: rgba(148, 163, 184, 0.5) !important; }
+        [data-theme="daylight"] .border-slate-900 { border-color: rgba(148, 163, 184, 0.3) !important; }
+        [data-theme="daylight"] .from-white { --tw-gradient-from: #0f172a !important; }
+        [data-theme="daylight"] .via-slate-200 { --tw-gradient-to: #334155 !important; }
+        [data-theme="daylight"] .to-slate-400 { --tw-gradient-to: #64748b !important; }
+        [data-theme="daylight"] .bg-gradient-to-r.from-white { color: #0f172a; }
+        [data-theme="daylight"] #game-canvas { background: linear-gradient(180deg, #e8eef5 0%, #dbe4ee 100%); }
+        [data-theme="daylight"] .selection\:bg-rose-500::selection { background-color: #e11d48; color: white; }
 
         body {
             background-color: var(--bg-base);
             overscroll-behavior: none;
-            /* Safe area for notched phones */
             padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
             padding-left: env(safe-area-inset-left);
             padding-right: env(safe-area-inset-right);
         }
 
-        /* Mobile-first header layout helpers */
         @media (max-width: 639px) {
             .mobile-header-grid {
                 display: grid;
@@ -122,82 +164,69 @@
 
         .glass-panel {
             background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-color);
-            transform: translateZ(0);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .glass-card {
             background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border-color);
-            transform: translateZ(0);
         }
 
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.35; }
-            50% { opacity: 0.95; }
+        @keyframes danger-pulse {
+            0%, 100% { opacity: 0.35; border-color: rgba(244, 63, 94, 0.4); }
+            50% { opacity: 1; border-color: rgba(244, 63, 94, 0.95); filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.6)); }
         }
 
         .danger-line-active {
-            animation: pulse-line 1.0s infinite ease-in-out;
+            animation: danger-pulse 0.9s infinite ease-in-out;
         }
 
-        @keyframes cabinet-shake-anim {
-            0%, 100% { transform: translate(0, 0); }
-            20% { transform: translate(-2px, 1px); }
-            40% { transform: translate(2px, -1px); }
-            60% { transform: translate(-1px, -1px); }
-            80% { transform: translate(1px, 1px); }
+        @keyframes shake-fx {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-3px, 2px) rotate(-0.5deg); }
+            40% { transform: translate(3px, -2px) rotate(0.5deg); }
+            60% { transform: translate(-2px, -1px) rotate(-0.3deg); }
+            80% { transform: translate(2px, 1px) rotate(0.3deg); }
         }
 
         .cabinet-shake {
-            animation: cabinet-shake-anim 0.2s ease-in-out;
+            animation: shake-fx 0.22s cubic-bezier(.36,.07,.19,.97) both;
         }
 
         #canvas-container {
-            transform: translateZ(0);
-            will-change: border-color;
+            position: relative;
+            touch-action: none;
+            will-change: transform;
         }
 
         #game-canvas {
-            transform: translateZ(0);
             display: block;
+            touch-action: none;
         }
 
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.2); }
         ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.4); border-radius: 9999px; }
-
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Extra compact on very small phones */
-        @media (max-width: 360px) {
-            header { font-size: 0.7rem; }
-            #canvas-container { border-radius: 0.75rem; }
-        }
-
-        /* Ensure canvas area gets maximum available height on mobile */
-        @media (max-width: 1023px) {
-            main {
-                min-height: 0;
-            }
-            #canvas-container {
-                min-height: 280px;
-            }
-        }
     </style>
 </head>
 
 <body class="h-[100dvh] max-h-[100dvh] w-full flex flex-col justify-between items-center p-1.5 sm:p-3 overflow-hidden relative font-sans">
     
     <!-- Session Restored Toast Notification -->
-    <div id="session-toast" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border border-emerald-500/40 text-emerald-300 font-mono text-[10px] sm:text-xs shadow-xl opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
-        <i data-lucide="cloud-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+    <div id="session-toast" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border border-emerald-500/50 text-emerald-300 font-mono text-[10px] sm:text-xs shadow-xl opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
+        <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
         <span>Session Restored</span>
     </div>
 
     <!-- Achievement Toast Notification -->
-    <div id="achievement-toast" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3.5 py-2 rounded-full glass-panel border border-amber-500/50 text-amber-300 font-mono text-[10px] sm:text-xs shadow-2xl opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
+    <div id="achievement-toast" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-3.5 py-2 rounded-full glass-panel border border-amber-500/60 text-amber-300 font-mono text-[10px] sm:text-xs shadow-2xl opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
         <i data-lucide="trophy" class="w-4 h-4 text-amber-400"></i>
         <span>ACHIEVEMENT: <span id="achievement-toast-title" class="font-bold text-white">Milestone</span></span>
     </div>
@@ -213,7 +242,7 @@
             </div>
             <div class="flex flex-col min-w-0">
                 <div class="flex items-center gap-1">
-                    <span class="text-[8px] sm:text-[10px] tracking-widest font-mono uppercase text-rose-400 font-semibold">CORE V4</span>
+                    <span class="text-[8px] sm:text-[10px] tracking-widest font-mono uppercase text-rose-400 font-semibold">PRO PHYSICS V5</span>
                     <span id="cloud-sync-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" title="Auto-save Active"></span>
                 </div>
                 <h1 class="text-[11px] sm:text-base md:text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent truncate">
@@ -222,7 +251,7 @@
             </div>
         </div>
 
-        <!-- Mode Switcher + Blitz Timer (grouped for mobile) -->
+        <!-- Mode Switcher + Blitz Timer -->
         <div class="mode-block flex items-center gap-1.5">
             <div class="flex items-center p-0.5 rounded-lg sm:rounded-xl glass-card text-[8px] sm:text-xs font-mono">
                 <button id="btn-mode-classic" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg font-bold bg-rose-600 text-white transition-colors">Classic</button>
@@ -243,16 +272,15 @@
                 <span class="flex items-center gap-1"><i data-lucide="sparkles" class="w-2.5 h-2.5 text-emerald-400"></i> MELON</span>
                 <span id="watermelon-progress-text" class="text-emerald-400 font-bold">0%</span>
             </div>
-            <div class="w-full bg-slate-850 h-1.5 rounded-full overflow-hidden bg-slate-900">
+            <div class="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
                 <div id="watermelon-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 transition-all duration-300 w-0"></div>
             </div>
         </div>
 
-        <!-- Stats + Actions row (full width on mobile) -->
+        <!-- Stats + Actions row -->
         <div class="stats-actions-block flex items-center justify-between sm:justify-end gap-1 sm:gap-2 w-full sm:w-auto">
-            <!-- Score + Best condensed -->
+            <!-- Score + Best -->
             <div class="flex items-center gap-1 sm:gap-1.5">
-                <!-- Score Card -->
                 <div class="glass-card px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-xl flex flex-col items-center min-w-[58px] sm:min-w-[84px] relative">
                     <div class="flex items-center gap-0.5">
                         <span class="text-[7px] sm:text-[9px] font-mono tracking-wider text-slate-400 uppercase">SCORE</span>
@@ -261,7 +289,6 @@
                     <span id="score-display" class="font-mono text-[11px] sm:text-base font-bold text-white tracking-tight leading-tight">0</span>
                 </div>
 
-                <!-- Best Score Card -->
                 <div class="glass-card px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-xl flex flex-col items-center min-w-[52px] sm:min-w-[76px]">
                     <span class="text-[7px] sm:text-[9px] font-mono tracking-wider text-amber-400 uppercase flex items-center gap-0.5">
                         <i data-lucide="crown" class="w-2 h-2 sm:w-2.5 sm:h-2.5"></i> BEST
@@ -270,24 +297,24 @@
                 </div>
             </div>
 
-            <!-- Header Action Controls - tighter on mobile, hide less critical on very small -->
+            <!-- Header Quick Action Controls -->
             <div class="flex items-center gap-0.5 sm:gap-1">
                 <button id="btn-fullscreen" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle Fullscreen [F]">
                     <i id="icon-fullscreen" data-lucide="maximize" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-bgm" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-400 hover:text-white transition-colors active:scale-95" title="Ambient Music">
+                <button id="btn-bgm" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-400 hover:text-white transition-colors active:scale-95" title="Ambient Synth Track">
                     <i id="icon-bgm" data-lucide="music" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
                 <button id="btn-sound" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Toggle SFX">
                     <i id="icon-sound" data-lucide="volume-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-theme" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Palette">
+                <button id="btn-theme" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Palette Theme">
                     <i data-lucide="palette" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-codex" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Codex">
+                <button id="btn-codex" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-slate-800 text-slate-300 hover:text-white transition-colors active:scale-95" title="Codex & Milestones">
                     <i data-lucide="book-open" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
-                <button id="btn-restart" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border-rose-500/20 transition-colors active:scale-95" title="Restart">
+                <button id="btn-restart" class="p-1.5 sm:p-2 rounded-lg sm:rounded-xl glass-card hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border-rose-500/20 transition-colors active:scale-95" title="Restart Game">
                     <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                 </button>
             </div>
@@ -304,7 +331,7 @@
                     <span class="text-[10px] font-mono font-semibold uppercase text-slate-400">HOLD SLOT</span>
                     <span class="text-[8px] px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 font-mono">[SPACE]</span>
                 </div>
-                <button id="btn-desktop-hold" class="w-14 h-14 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center relative overflow-hidden transition-all hover:border-slate-700 active:scale-95 group" title="Press Space to Hold">
+                <button id="btn-desktop-hold" class="w-14 h-14 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-center relative overflow-hidden transition-all hover:border-slate-700 active:scale-95 group shadow-inner" title="Press Space to Hold">
                     <canvas id="hold-canvas-desktop" width="56" height="56" class="w-full h-full"></canvas>
                     <span id="hold-placeholder-desktop" class="absolute text-[9px] font-mono text-slate-500 group-hover:text-slate-400">EMPTY</span>
                 </button>
@@ -374,11 +401,10 @@
             </div>
         </aside>
 
-        <div class="relative flex flex-col items-center justify-center w-full h-full max-w-[420px] min-w-0 sm:min-w-[280px] flex-1">
+        <div class="relative flex flex-col items-center justify-center w-full h-full max-w-[440px] min-w-0 sm:min-w-[280px] flex-1">
             
             <!-- Mobile Compact HUD -->
             <div class="lg:hidden w-full flex flex-col gap-1 mb-1 shrink-0">
-                <!-- Top row: Hold + Next + Melon progress -->
                 <div class="w-full flex items-center justify-between px-1.5 py-1 glass-card rounded-xl gap-1.5">
                     <button id="btn-mobile-hold" class="flex items-center gap-1 px-1.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[9px] font-mono text-slate-300 active:scale-95 shrink-0">
                         <canvas id="hold-canvas-mobile" width="20" height="20" class="w-5 h-5"></canvas>
@@ -391,7 +417,7 @@
                         <canvas id="next-canvas-mobile-2" width="16" height="16" class="w-4 h-4 opacity-70 shrink-0"></canvas>
                     </div>
 
-                    <!-- Mobile Melon progress (compact) -->
+                    <!-- Mobile Melon progress -->
                     <div class="flex flex-col items-end min-w-[52px] shrink-0">
                         <div class="flex items-center gap-0.5 text-[8px] font-mono text-emerald-400">
                             <i data-lucide="sparkles" class="w-2.5 h-2.5"></i>
@@ -403,7 +429,7 @@
                     </div>
                 </div>
 
-                <!-- Tools row - scrollable if needed, evenly spaced -->
+                <!-- Tools row -->
                 <div class="w-full flex items-center justify-between px-1 py-1 glass-card rounded-xl gap-0.5 overflow-x-auto no-scrollbar">
                     <button id="btn-mobile-undo" class="flex flex-col items-center justify-center p-1.5 min-w-[40px] rounded-lg bg-slate-900 border border-slate-800 text-sky-400 active:scale-95" title="Undo">
                         <i data-lucide="undo-2" class="w-4 h-4"></i>
@@ -432,19 +458,19 @@
                 </div>
             </div>
 
-            <!-- Physics Playfield Arena -->
-            <div id="canvas-container" class="relative w-full flex-1 rounded-2xl overflow-hidden glass-panel border border-slate-800 shadow-xl flex items-center justify-center">
+            <!-- Physics Arena Container -->
+            <div id="canvas-container" class="relative w-full flex-1 rounded-2xl overflow-hidden glass-panel border border-slate-800/80 shadow-2xl flex items-center justify-center">
                 <!-- Danger Threshold Limit Line -->
-                <div id="danger-line" class="absolute left-0 right-0 top-[90px] border-b-2 border-dashed border-rose-500/35 pointer-events-none z-10 transition-opacity duration-300">
-                    <div class="absolute -top-3 right-2 text-[8px] font-mono px-1.5 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/60 uppercase tracking-wider flex items-center gap-1">
-                        <i data-lucide="alert-triangle" class="w-2.5 h-2.5"></i> Limit
+                <div id="danger-line" class="absolute left-0 right-0 top-[90px] border-b-2 border-dashed border-rose-500/40 pointer-events-none z-10 transition-opacity duration-300">
+                    <div class="absolute -top-3 right-2 text-[8px] font-mono px-1.5 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800/60 uppercase tracking-wider flex items-center gap-1 shadow">
+                        <i data-lucide="alert-triangle" class="w-2.5 h-2.5"></i> Danger Limit
                     </div>
                     <div id="danger-countdown-badge" class="hidden absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600 text-white shadow-lg tracking-wider animate-pulse flex items-center gap-1">
-                        <i data-lucide="clock" class="w-2.5 h-2.5"></i> OVERFLOW: <span id="danger-countdown-val">2.6s</span>
+                        <i data-lucide="clock" class="w-2.5 h-2.5"></i> OVERFLOW: <span id="danger-countdown-val">2.8s</span>
                     </div>
                 </div>
 
-                <!-- Tactical Overlay Banners with Interactive Cancellation -->
+                <!-- Tactical Overlay Banners -->
                 <div id="slicer-overlay" class="absolute top-2 left-1/2 -translate-x-1/2 z-20 pointer-events-auto hidden px-3 py-1 rounded-full bg-rose-600 text-white font-mono text-[10px] shadow-lg flex items-center gap-2">
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="scissors" class="w-3 h-3"></i>
@@ -452,6 +478,7 @@
                     </div>
                     <button id="btn-cancel-slicer" class="px-1.5 py-0.5 rounded bg-black/25 hover:bg-black/40 text-[9px] font-bold text-rose-200 transition-colors">CANCEL</button>
                 </div>
+                
                 <div id="bomb-overlay" class="absolute top-2 left-1/2 -translate-x-1/2 z-20 pointer-events-auto hidden px-3 py-1 rounded-full bg-orange-600 text-white font-mono text-[10px] shadow-lg flex items-center gap-2">
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="flame" class="w-3 h-3"></i>
@@ -459,19 +486,20 @@
                     </div>
                     <button id="btn-cancel-bomb" class="px-1.5 py-0.5 rounded bg-black/25 hover:bg-black/40 text-[9px] font-bold text-orange-200 transition-colors">CANCEL</button>
                 </div>
+                
                 <div id="magnet-overlay" class="absolute top-2 left-1/2 -translate-x-1/2 z-20 pointer-events-none hidden px-3 py-1 rounded-full bg-purple-600 text-white font-mono text-[10px] shadow-lg flex items-center gap-1.5 animate-pulse">
                     <i data-lucide="magnet" class="w-3 h-3"></i> MAGNET FIELD ACTIVE
                 </div>
 
                 <!-- Combo Announcer -->
-                <div id="combo-announcer" class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30 opacity-0 scale-50 transition-transform duration-200 font-extrabold font-mono text-xl sm:text-2xl text-amber-300">
+                <div id="combo-announcer" class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30 opacity-0 scale-50 transition-transform duration-200 font-extrabold font-mono text-xl sm:text-2xl text-amber-300 drop-shadow-md">
                     COMBO x2!
                 </div>
 
-                <!-- Touch Guide -->
+                <!-- Drop Aim Guide -->
                 <div id="touch-aim-guide" class="absolute pointer-events-none z-20 opacity-0 transition-opacity duration-150 flex flex-col items-center">
-                    <div class="px-2 py-0.5 rounded-full bg-slate-900 border border-white/20 text-[9px] font-mono font-bold text-white tracking-wider uppercase">
-                        DROP
+                    <div class="px-2 py-0.5 rounded-full bg-slate-900/90 border border-white/20 text-[9px] font-mono font-bold text-white tracking-wider uppercase backdrop-blur-sm shadow">
+                        RELEASE TO DROP
                     </div>
                 </div>
 
@@ -486,13 +514,13 @@
             <div class="glass-panel p-2.5 rounded-2xl flex flex-col items-center">
                 <div class="flex items-center justify-between w-full mb-1">
                     <span class="text-[10px] font-mono font-semibold uppercase text-slate-400">UPCOMING</span>
-                    <span class="text-[8px] px-1 py-0.5 rounded bg-slate-900 text-emerald-400 font-mono">NEXT</span>
+                    <span class="text-[8px] px-1 py-0.5 rounded bg-slate-900 text-emerald-400 font-mono font-bold">NEXT</span>
                 </div>
                 <div class="w-full flex items-center justify-center gap-2">
-                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
                         <canvas id="next-canvas-desktop-1" width="48" height="48" class="w-full h-full"></canvas>
                     </div>
-                    <div class="w-9 h-9 rounded-xl bg-slate-950/60 border border-slate-800/80 flex flex-col items-center justify-center relative overflow-hidden opacity-70">
+                    <div class="w-9 h-9 rounded-xl bg-slate-950/50 border border-slate-800/80 flex flex-col items-center justify-center relative overflow-hidden opacity-70">
                         <canvas id="next-canvas-desktop-2" width="36" height="36" class="w-full h-full"></canvas>
                     </div>
                 </div>
@@ -517,21 +545,21 @@
     <footer class="w-full max-w-5xl py-0.5 sm:py-1 px-1.5 sm:px-2 flex items-center justify-between text-xs text-slate-500 z-10 shrink-0">
         <div class="flex items-center gap-1 sm:gap-1.5">
             <span class="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500"></span>
-            <span class="font-mono text-[8px] sm:text-[10px]">60FPS</span>
+            <span class="font-mono text-[8px] sm:text-[10px]">60 FPS // SUBSTEP PHYSICS</span>
         </div>
         <button id="btn-gyro-toggle" class="flex items-center gap-1 text-[8px] sm:text-[10px] font-mono text-slate-400 hover:text-slate-200 px-1.5 sm:px-2 py-0.5 rounded bg-slate-900 border border-slate-800" title="Device tilt gravity">
             <i data-lucide="smartphone" class="w-2.5 h-2.5"></i> TILT: <span id="gyro-status">OFF</span>
         </button>
-        <div class="text-[8px] sm:text-[10px] font-mono text-slate-500 hidden sm:block">
-            DRAG & RELEASE • [SPACE] HOLD • [Z] UNDO • [N] JOSTLE • [M] MAGNET
+        <div class="text-[8px] sm:text-[10px] font-mono text-slate-400 hidden sm:block">
+            HOVER TO AIM • CLICK TO DROP • [SPACE] HOLD • [Z] UNDO • [N] JOSTLE
         </div>
-        <div class="text-[8px] font-mono text-slate-500 sm:hidden">
+        <div class="text-[8px] font-mono text-emerald-400 sm:hidden">
             TAP TO DROP
         </div>
     </footer>
 
     <!-- Game Over Modal -->
-    <div id="game-over-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
+    <div id="game-over-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-md">
         <div class="w-full max-w-sm glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-200 max-h-[90dvh] overflow-y-auto">
             <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center justify-center mb-1.5">
                 <i data-lucide="alert-octagon" class="w-6 h-6"></i>
@@ -587,7 +615,7 @@
     </div>
 
     <!-- Confirm Restart Modal -->
-    <div id="confirm-restart-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
+    <div id="confirm-restart-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-md">
         <div class="w-full max-w-xs glass-panel p-5 rounded-3xl border border-slate-700 shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-200">
             <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-2.5">
                 <i data-lucide="rotate-ccw" class="w-6 h-6"></i>
@@ -606,7 +634,7 @@
     </div>
 
     <!-- Fruit Codex & Milestone Modal -->
-    <div id="codex-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
+    <div id="codex-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-md">
         <div class="w-full max-w-lg glass-panel p-5 rounded-3xl border border-slate-700 flex flex-col max-h-[85vh] shadow-2xl">
             <div class="flex items-center justify-between pb-2 border-b border-slate-800">
                 <div class="flex items-center gap-2">
@@ -637,18 +665,17 @@
             <div class="flex items-center border-b border-slate-800 mb-2 text-xs font-mono">
                 <button id="tab-codex-fruits" class="px-3 py-1.5 border-b-2 border-rose-500 font-bold text-white">FRUITS</button>
                 <button id="tab-codex-milestones" class="px-3 py-1.5 border-b-2 border-transparent text-slate-400 hover:text-white flex items-center gap-1">
-                    MILESTONES <span id="milestone-unlocked-count" class="text-[9px] px-1 rounded bg-amber-500/20 text-amber-300">0/6</span>
+                    MILESTONES <span id="milestone-unlocked-count" class="text-[9px] px-1 rounded bg-amber-500/20 text-amber-300 font-bold">0/7</span>
                 </button>
             </div>
 
-            <!-- Tab Contents -->
             <div id="codex-fruit-grid" class="flex-1 overflow-y-auto py-1 space-y-1.5 pr-1"></div>
             <div id="codex-milestones-grid" class="flex-1 overflow-y-auto py-1 space-y-1.5 pr-1 hidden"></div>
         </div>
     </div>
 
     <!-- Theme Palette Selector Modal -->
-    <div id="theme-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200">
+    <div id="theme-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 opacity-0 pointer-events-none transition-opacity duration-200 backdrop-blur-md">
         <div class="w-full max-w-sm glass-panel p-4 rounded-3xl border border-slate-700 flex flex-col shadow-2xl">
             <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-2.5">
                 <div class="flex items-center gap-2">
@@ -726,91 +753,55 @@
                     </div>
                     <i data-lucide="check" class="theme-check-icon w-3.5 h-3.5 text-purple-400 hidden"></i>
                 </button>
+
+                <button data-select-theme="daylight" class="w-full p-2.5 rounded-2xl glass-card border flex items-center justify-between text-left hover:border-sky-400/50 transition-colors">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-sky-300 via-white to-amber-200 shadow-md border border-slate-200"></div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Daylight Soft</div>
+                            <div class="text-[9px] text-slate-400 font-mono">Bright clean daylight mode</div>
+                        </div>
+                    </div>
+                    <i data-lucide="check" class="theme-check-icon w-3.5 h-3.5 text-sky-500 hidden"></i>
+                </button>
             </div>
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'fruit-merge-core';
-        let db = null;
-        let auth = null;
-        let userId = null;
-        let memoryStore = {};
-
-        async function initCloudSync() {
-            try {
-                if (typeof __firebase_config !== 'undefined') {
-                    const firebaseConfig = JSON.parse(__firebase_config);
-                    const app = initializeApp(firebaseConfig);
-                    auth = getAuth(app);
-                    db = getFirestore(app);
-
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-
-                    userId = auth.currentUser?.uid || 'anonymous-player';
+    <script>
+        // Storage provider to safely save and restore game states
+        window.LocalPersistence = {
+            saveSession(state) {
+                try {
+                    localStorage.setItem('fruit_merge_pro_session', JSON.stringify(state));
+                    return true;
+                } catch (e) {
+                    return false;
                 }
-            } catch (err) {
-                console.warn('Storage sync initialized in local fallback mode:', err);
-            }
-        }
-
-        window.CloudPersistence = {
-            async saveSession(state) {
-                if (db && userId) {
-                    try {
-                        const ref = doc(db, 'artifacts', appId, 'users', userId, 'fruitMerge', 'activeSession');
-                        await setDoc(ref, state);
-                        return true;
-                    } catch (e) {
-                        console.warn('Failed saving to cloud:', e);
-                    }
-                }
-                memoryStore['activeSession'] = JSON.stringify(state);
-                return false;
             },
-
-            async loadSession() {
-                if (db && userId) {
-                    try {
-                        const ref = doc(db, 'artifacts', appId, 'users', userId, 'fruitMerge', 'activeSession');
-                        const snap = await getDoc(ref);
-                        if (snap.exists()) {
-                            return snap.data();
-                        }
-                    } catch (e) {
-                        console.warn('Failed loading from cloud:', e);
-                    }
+            loadSession() {
+                try {
+                    const raw = localStorage.getItem('fruit_merge_pro_session');
+                    return raw ? JSON.parse(raw) : null;
+                } catch (e) {
+                    return null;
                 }
-                if (memoryStore['activeSession']) {
-                    try { return JSON.parse(memoryStore['activeSession']); } catch (_) {}
-                }
-                return null;
             },
-
-            async clearSession() {
-                if (db && userId) {
-                    try {
-                        const ref = doc(db, 'artifacts', appId, 'users', userId, 'fruitMerge', 'activeSession');
-                        await setDoc(ref, { cleared: true, updatedAt: Date.now() });
-                    } catch (_) {}
-                }
-                delete memoryStore['activeSession'];
+            clearSession() {
+                try {
+                    localStorage.removeItem('fruit_merge_pro_session');
+                } catch (e) {}
             }
         };
 
-        await initCloudSync();
-        window.dispatchEvent(new CustomEvent('cloud-sync-ready'));
-    </script>
+        function safeVibrate(pattern) {
+            try {
+                if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                    navigator.vibrate(pattern);
+                }
+            } catch (_) {}
+        }
 
-    <script>
         class AudioSystem {
             constructor() {
                 this.ctx = null;
@@ -843,14 +834,14 @@
                 this.init();
                 if (!this.ctx) return;
                 const now = this.ctx.currentTime;
+
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(260, now);
-                osc.frequency.exponentialRampToValueAtTime(80, now + 0.08);
+                osc.frequency.setValueAtTime(420, now);
+                osc.frequency.exponentialRampToValueAtTime(120, now + 0.08);
 
-                gain.gain.setValueAtTime(0.18, now);
+                gain.gain.setValueAtTime(0.22, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
 
                 osc.connect(gain);
@@ -859,27 +850,59 @@
                 osc.stop(now + 0.08);
             }
 
+            playBounce(impactSpeed = 2, tier = 0) {
+                if (this.sfxMuted) return;
+                this.init();
+                if (!this.ctx) return;
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                const baseFreq = Math.max(70, 320 - (tier * 22));
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(baseFreq, now);
+                osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.5, now + 0.06);
+
+                const volume = Math.min(0.2, Math.max(0.03, (impactSpeed / 12) * 0.18));
+                gain.gain.setValueAtTime(volume, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.06);
+            }
+
             playMerge(tierIndex, comboMultiplier = 1) {
                 if (this.sfxMuted) return;
                 this.init();
                 if (!this.ctx) return;
                 const now = this.ctx.currentTime;
                 const baseFreq = this.frequencies[Math.min(tierIndex, this.frequencies.length - 1)];
-                const pitchMod = Math.pow(1.05, Math.min(comboMultiplier, 5) - 1);
+                const pitchMod = Math.pow(1.05946, Math.min(comboMultiplier, 6) - 1);
                 const freq = baseFreq * pitchMod;
 
-                const osc = this.ctx.createOscillator();
-                const gain = this.ctx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, now);
+                const osc1 = this.ctx.createOscillator();
+                const gain1 = this.ctx.createGain();
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(freq, now);
+                gain1.gain.setValueAtTime(0.26, now);
+                gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+                osc1.connect(gain1);
+                gain1.connect(this.ctx.destination);
+                osc1.start(now);
+                osc1.stop(now + 0.32);
 
-                gain.gain.setValueAtTime(0.24, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
-
-                osc.connect(gain);
-                gain.connect(this.ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.28);
+                const osc2 = this.ctx.createOscillator();
+                const gain2 = this.ctx.createGain();
+                osc2.type = 'triangle';
+                osc2.frequency.setValueAtTime(freq * 1.5, now);
+                gain2.gain.setValueAtTime(0.14, now);
+                gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+                osc2.connect(gain2);
+                gain2.connect(this.ctx.destination);
+                osc2.start(now);
+                osc2.stop(now + 0.22);
             }
 
             playSlice() {
@@ -889,14 +912,11 @@
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(800, now);
+                osc.frequency.setValueAtTime(880, now);
                 osc.frequency.exponentialRampToValueAtTime(140, now + 0.09);
-
-                gain.gain.setValueAtTime(0.22, now);
+                gain.gain.setValueAtTime(0.24, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start(now);
@@ -910,18 +930,15 @@
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'square';
-                osc.frequency.setValueAtTime(140, now);
-                osc.frequency.exponentialRampToValueAtTime(30, now + 0.3);
-
-                gain.gain.setValueAtTime(0.3, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(32, now + 0.35);
+                gain.gain.setValueAtTime(0.32, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start(now);
-                osc.stop(now + 0.3);
+                osc.stop(now + 0.35);
             }
 
             playNudge() {
@@ -931,18 +948,15 @@
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(80, now);
-                osc.frequency.linearRampToValueAtTime(130, now + 0.12);
-
-                gain.gain.setValueAtTime(0.25, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-
+                osc.frequency.setValueAtTime(90, now);
+                osc.frequency.linearRampToValueAtTime(150, now + 0.14);
+                gain.gain.setValueAtTime(0.28, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start(now);
-                osc.stop(now + 0.18);
+                osc.stop(now + 0.2);
             }
 
             playMagnet() {
@@ -952,14 +966,11 @@
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(320, now);
-                osc.frequency.linearRampToValueAtTime(640, now + 0.25);
-
-                gain.gain.setValueAtTime(0.2, now);
+                osc.frequency.linearRampToValueAtTime(680, now + 0.28);
+                gain.gain.setValueAtTime(0.22, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start(now);
@@ -977,10 +988,8 @@
                     const gain = this.ctx.createGain();
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(freq, now);
-
                     gain.gain.setValueAtTime(0.18, now);
                     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-
                     osc.connect(gain);
                     gain.connect(this.ctx.destination);
                     osc.start(now);
@@ -1052,14 +1061,11 @@
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sawtooth';
                 osc.frequency.setValueAtTime(180, now);
                 osc.frequency.exponentialRampToValueAtTime(40, now + 0.5);
-
                 gain.gain.setValueAtTime(0.25, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start(now);
@@ -1128,217 +1134,504 @@
 
         const audio = new AudioSystem();
 
-        function safeVibrate(pattern) {
-            try {
-                if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-                    navigator.vibrate(pattern);
-                }
-            } catch (_) {}
-        }
-
         const FRUIT_TIERS = [
-            { tier: 0, name: 'Cherry', radius: 17, score: 2, color: '#E11D48', accent: '#FDA4AF', borderColor: '#9F1239', glow: 'rgba(225,29,72,0.4)', iconType: 'cherry' },
-            { tier: 1, name: 'Strawberry', radius: 24, score: 4, color: '#F43F5E', accent: '#FFE4E6', borderColor: '#BE123C', glow: 'rgba(244,63,94,0.4)', iconType: 'strawberry' },
-            { tier: 2, name: 'Grape', radius: 32, score: 8, color: '#8B5CF6', accent: '#DDD6FE', borderColor: '#6D28D9', glow: 'rgba(139,92,246,0.4)', iconType: 'grape' },
-            { tier: 3, name: 'Lemon', radius: 41, score: 16, color: '#EAB308', accent: '#FEF08A', borderColor: '#A16207', glow: 'rgba(234,179,8,0.4)', iconType: 'lemon' },
-            { tier: 4, name: 'Orange', radius: 51, score: 32, color: '#F97316', accent: '#FFEDD5', borderColor: '#C2410C', glow: 'rgba(249,115,22,0.4)', iconType: 'orange' },
-            { tier: 5, name: 'Apple', radius: 63, score: 64, color: '#EF4444', accent: '#FEE2E2', borderColor: '#B91C1C', glow: 'rgba(239,68,68,0.4)', iconType: 'apple' },
-            { tier: 6, name: 'Pear', radius: 76, score: 128, color: '#84CC16', accent: '#ECFCCB', borderColor: '#4D7C0F', glow: 'rgba(132,204,22,0.4)', iconType: 'pear' },
-            { tier: 7, name: 'Peach', radius: 89, score: 256, color: '#FB7185', accent: '#FFE4E6', borderColor: '#E11D48', glow: 'rgba(251,113,133,0.4)', iconType: 'peach' },
-            { tier: 8, name: 'Pineapple', radius: 104, score: 512, color: '#F59E0B', accent: '#FEF3C7', borderColor: '#B45309', glow: 'rgba(245,158,11,0.4)', iconType: 'pineapple' },
-            { tier: 9, name: 'Melon', radius: 120, score: 1024, color: '#10B981', accent: '#D1FAE5', borderColor: '#047857', glow: 'rgba(16,185,129,0.4)', iconType: 'melon' },
-            { tier: 10, name: 'Watermelon', radius: 138, score: 2048, color: '#059669', accent: '#6EE7B7', borderColor: '#064E3B', glow: 'rgba(5,150,105,0.45)', iconType: 'watermelon' }
+            { tier: 0, name: 'Cherry', radius: 17, score: 2, color: '#E11D48', accent: '#FDA4AF', borderColor: '#9F1239', glow: 'rgba(225,29,72,0.4)', expression: 'wink' },
+            { tier: 1, name: 'Strawberry', radius: 24, score: 4, color: '#F43F5E', accent: '#FFE4E6', borderColor: '#BE123C', glow: 'rgba(244,63,94,0.4)', expression: 'happy' },
+            { tier: 2, name: 'Grape', radius: 32, score: 8, color: '#8B5CF6', accent: '#DDD6FE', borderColor: '#6D28D9', glow: 'rgba(139,92,246,0.4)', expression: 'cute' },
+            { tier: 3, name: 'Lemon', radius: 42, score: 16, color: '#EAB308', accent: '#FEF08A', borderColor: '#A16207', glow: 'rgba(234,179,8,0.4)', expression: 'happy' },
+            { tier: 4, name: 'Orange', radius: 52, score: 32, color: '#F97316', accent: '#FFEDD5', borderColor: '#C2410C', glow: 'rgba(249,115,22,0.4)', expression: 'joy' },
+            { tier: 5, name: 'Apple', radius: 64, score: 64, color: '#EF4444', accent: '#FEE2E2', borderColor: '#B91C1C', glow: 'rgba(239,68,68,0.4)', expression: 'cute' },
+            { tier: 6, name: 'Pear', radius: 77, score: 128, color: '#84CC16', accent: '#ECFCCB', borderColor: '#4D7C0F', glow: 'rgba(132,204,22,0.4)', expression: 'chill' },
+            { tier: 7, name: 'Peach', radius: 90, score: 256, color: '#FB7185', accent: '#FFE4E6', borderColor: '#E11D48', glow: 'rgba(251,113,133,0.4)', expression: 'blush' },
+            { tier: 8, name: 'Pineapple', radius: 105, score: 512, color: '#F59E0B', accent: '#FEF3C7', borderColor: '#B45309', glow: 'rgba(245,158,11,0.4)', expression: 'cool' },
+            { tier: 9, name: 'Melon', radius: 122, score: 1024, color: '#10B981', accent: '#D1FAE5', borderColor: '#047857', glow: 'rgba(16,185,129,0.4)', expression: 'star' },
+            { tier: 10, name: 'Watermelon', radius: 140, score: 2048, color: '#059669', accent: '#6EE7B7', borderColor: '#064E3B', glow: 'rgba(5,150,105,0.5)', expression: 'king' }
         ];
 
-        function drawFruitVectorIcon(ctx, iconType, cx, cy, radius, accentColor) {
+        function drawCuteFace(ctx, tierIndex, r, mood = 'normal') {
+            // Soft cute face scaled to fruit size (kept playful on realistic fruit bodies)
+            const s = r / 36;
             ctx.save();
-            ctx.translate(cx, cy);
-            const scale = radius / 36;
-            ctx.scale(scale, scale);
-            ctx.strokeStyle = '#FFFFFF';
-            ctx.fillStyle = '#FFFFFF';
-            ctx.lineWidth = 2.4;
+            ctx.scale(s, s);
+            ctx.fillStyle = '#1e1e24';
+            ctx.strokeStyle = '#1e1e24';
+            ctx.lineWidth = 2.3;
             ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
 
-            switch (iconType) {
-                case 'cherry':
+            if (mood === 'panicked') {
+                ctx.beginPath();
+                ctx.arc(-8, -4, 3.6, 0, Math.PI * 2);
+                ctx.arc(8, -4, 3.6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#60A5FA';
+                ctx.beginPath();
+                ctx.arc(13, -9, 2.2, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.moveTo(-7, 6);
+                ctx.quadraticCurveTo(-3, 3, 0, 6);
+                ctx.quadraticCurveTo(3, 9, 7, 6);
+                ctx.stroke();
+            } else if (mood === 'squished') {
+                ctx.beginPath();
+                ctx.moveTo(-11, -6); ctx.lineTo(-5, -3); ctx.lineTo(-11, 0);
+                ctx.moveTo(11, -6); ctx.lineTo(5, -3); ctx.lineTo(11, 0);
+                ctx.stroke();
+                ctx.fillStyle = '#1e1e24';
+                ctx.beginPath();
+                ctx.ellipse(0, 5, 3.2, 4.5, 0, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                const cfg = FRUIT_TIERS[tierIndex];
+                if (cfg.expression === 'wink') {
                     ctx.beginPath();
-                    ctx.moveTo(-5, -6);
-                    ctx.quadraticCurveTo(0, -15, 5, -6);
-                    ctx.moveTo(0, -13);
-                    ctx.lineTo(2, -17);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.arc(-5, 4, 5.5, 0, Math.PI * 2);
+                    ctx.arc(-8, -4, 2.6, 0, Math.PI * 2);
                     ctx.fill();
                     ctx.beginPath();
-                    ctx.arc(6, 5, 5.5, 0, Math.PI * 2);
+                    ctx.arc(8, -4, 4.5, Math.PI * 0.12, Math.PI * 0.88);
+                    ctx.stroke();
+                } else if (cfg.expression === 'star' || cfg.expression === 'king') {
+                    ctx.fillStyle = '#FEF08A';
+                    ctx.beginPath();
+                    ctx.arc(-8, -4, 3.8, 0, Math.PI * 2);
+                    ctx.arc(8, -4, 3.8, 0, Math.PI * 2);
                     ctx.fill();
-                    break;
-                case 'strawberry':
+                    ctx.fillStyle = '#1e1e24';
                     ctx.beginPath();
-                    ctx.moveTo(0, 11);
-                    ctx.bezierCurveTo(-11, 4, -10, -7, 0, -7);
-                    ctx.bezierCurveTo(10, -7, 11, 4, 0, 11);
+                    ctx.arc(-8, -4, 1.9, 0, Math.PI * 2);
+                    ctx.arc(8, -4, 1.9, 0, Math.PI * 2);
                     ctx.fill();
-                    ctx.strokeStyle = accentColor || '#86EFAC';
-                    ctx.lineWidth = 2.2;
+                } else {
                     ctx.beginPath();
-                    ctx.moveTo(-6, -8);
-                    ctx.lineTo(0, -5);
-                    ctx.lineTo(6, -8);
-                    ctx.stroke();
-                    break;
-                case 'grape':
-                    const grapePos = [[0, 7], [-5, 1], [5, 1], [-7, -5], [0, -5], [7, -5]];
-                    grapePos.forEach(([gx, gy]) => {
-                        ctx.beginPath();
-                        ctx.arc(gx, gy, 3.8, 0, Math.PI * 2);
-                        ctx.fill();
-                    });
-                    ctx.beginPath();
-                    ctx.moveTo(0, -8);
-                    ctx.lineTo(0, -13);
-                    ctx.stroke();
-                    break;
-                case 'lemon':
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 9.5, 0.2, Math.PI - 0.2);
-                    ctx.closePath();
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(0, 0); ctx.lineTo(-6, 7);
-                    ctx.moveTo(0, 0); ctx.lineTo(0, 9);
-                    ctx.moveTo(0, 0); ctx.lineTo(6, 7);
-                    ctx.stroke();
-                    break;
-                case 'orange':
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 9.5, 0, Math.PI * 2);
-                    ctx.stroke();
-                    for (let i = 0; i < 4; i++) {
-                        const angle = (i * Math.PI) / 2 + 0.4;
-                        ctx.beginPath();
-                        ctx.moveTo(Math.cos(angle) * 3, Math.sin(angle) * 3);
-                        ctx.lineTo(Math.cos(angle) * 8, Math.sin(angle) * 8);
-                        ctx.stroke();
-                    }
-                    break;
-                case 'apple':
-                    ctx.beginPath();
-                    ctx.arc(-4, 2, 7, 0, Math.PI * 2);
-                    ctx.arc(4, 2, 7, 0, Math.PI * 2);
+                    ctx.arc(-8, -4, 3.0, 0, Math.PI * 2);
+                    ctx.arc(8, -4, 3.0, 0, Math.PI * 2);
                     ctx.fill();
+                    ctx.fillStyle = '#FFFFFF';
                     ctx.beginPath();
-                    ctx.moveTo(0, -4);
-                    ctx.quadraticCurveTo(2, -10, 4, -13);
-                    ctx.stroke();
-                    break;
-                case 'pear':
-                    ctx.beginPath();
-                    ctx.arc(0, 4, 8, 0, Math.PI * 2);
+                    ctx.arc(-9, -5.3, 1.1, 0, Math.PI * 2);
+                    ctx.arc(7, -5.3, 1.1, 0, Math.PI * 2);
                     ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(0, -3, 5, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.moveTo(0, -8);
-                    ctx.lineTo(2, -12);
-                    ctx.stroke();
-                    break;
-                case 'peach':
-                    ctx.beginPath();
-                    ctx.moveTo(0, -8);
-                    ctx.bezierCurveTo(-11, -8, -12, 6, 0, 11);
-                    ctx.bezierCurveTo(12, 6, 11, -8, 0, -8);
-                    ctx.fill();
-                    ctx.strokeStyle = accentColor;
-                    ctx.beginPath();
-                    ctx.moveTo(0, -5);
-                    ctx.lineTo(0, 6);
-                    ctx.stroke();
-                    break;
-                case 'pineapple':
-                    ctx.beginPath();
-                    ctx.roundRect(-8, -4, 16, 16, 5);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(-6, -2); ctx.lineTo(6, 10);
-                    ctx.moveTo(6, -2); ctx.lineTo(-6, 10);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(-6, -5); ctx.lineTo(-3, -11);
-                    ctx.lineTo(0, -6); ctx.lineTo(3, -11);
-                    ctx.lineTo(6, -5);
-                    ctx.stroke();
-                    break;
-                case 'melon':
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 11, 0, Math.PI * 2);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.ellipse(0, 0, 5, 10.5, 0, 0, Math.PI * 2);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(0, -10.5); ctx.lineTo(0, 10.5);
-                    ctx.stroke();
-                    break;
-                case 'watermelon':
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 12, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = '#022C22';
-                    ctx.lineWidth = 2.4;
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 8, -0.6, 0.6);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 8, Math.PI - 0.6, Math.PI + 0.6);
-                    ctx.stroke();
-                    break;
+                }
+                ctx.fillStyle = 'rgba(255, 120, 140, 0.35)';
+                ctx.beginPath();
+                ctx.arc(-13, 2, 3.2, 0, Math.PI * 2);
+                ctx.arc(13, 2, 3.2, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#1e1e24';
+                ctx.beginPath();
+                ctx.arc(0, 3, 5.5, 0.25, Math.PI - 0.25);
+                ctx.stroke();
             }
             ctx.restore();
         }
 
+        function drawRealisticFruit(octx, idx, center, r) {
+            const config = FRUIT_TIERS[idx];
+
+            octx.save();
+            octx.shadowColor = 'rgba(0,0,0,0.22)';
+            octx.shadowBlur = Math.max(4, r * 0.12);
+            octx.shadowOffsetY = Math.max(2, r * 0.06);
+
+            // Base body + unique surface details per fruit
+            if (idx === 0) {
+                // Cherry — glossy red sphere + stem + leaf
+                const g = octx.createRadialGradient(center - r * 0.3, center - r * 0.35, r * 0.05, center, center, r);
+                g.addColorStop(0, '#FDA4AF');
+                g.addColorStop(0.45, '#E11D48');
+                g.addColorStop(1, '#9F1239');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Highlight
+                octx.fillStyle = 'rgba(255,255,255,0.45)';
+                octx.beginPath();
+                octx.ellipse(center - r * 0.28, center - r * 0.32, r * 0.22, r * 0.14, -0.5, 0, Math.PI * 2);
+                octx.fill();
+                // Stem
+                octx.strokeStyle = '#3F6212';
+                octx.lineWidth = Math.max(1.5, r * 0.12);
+                octx.lineCap = 'round';
+                octx.beginPath();
+                octx.moveTo(center + r * 0.1, center - r * 0.75);
+                octx.quadraticCurveTo(center + r * 0.35, center - r * 1.15, center + r * 0.15, center - r * 1.35);
+                octx.stroke();
+                // Leaf
+                octx.fillStyle = '#65A30D';
+                octx.beginPath();
+                octx.ellipse(center + r * 0.35, center - r * 1.15, r * 0.28, r * 0.12, 0.6, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 1) {
+                // Strawberry — heart-ish body, seeds, leafy calyx
+                const g = octx.createRadialGradient(center - r * 0.2, center - r * 0.15, r * 0.1, center, center + r * 0.1, r);
+                g.addColorStop(0, '#FECDD3');
+                g.addColorStop(0.4, '#F43F5E');
+                g.addColorStop(1, '#BE123C');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.moveTo(center, center + r * 0.92);
+                octx.bezierCurveTo(center + r * 1.05, center + r * 0.2, center + r * 0.85, center - r * 0.55, center, center - r * 0.55);
+                octx.bezierCurveTo(center - r * 0.85, center - r * 0.55, center - r * 1.05, center + r * 0.2, center, center + r * 0.92);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Seeds
+                octx.fillStyle = '#FEF08A';
+                for (let i = 0; i < 14; i++) {
+                    const a = (i / 14) * Math.PI * 2 + 0.3;
+                    const rr = r * (0.25 + (i % 3) * 0.12);
+                    octx.beginPath();
+                    octx.ellipse(center + Math.cos(a) * rr, center + Math.sin(a) * rr * 0.9 + r * 0.05, r * 0.06, r * 0.04, a, 0, Math.PI * 2);
+                    octx.fill();
+                }
+                // Calyx (green top)
+                octx.fillStyle = '#4D7C0F';
+                for (let i = 0; i < 5; i++) {
+                    const a = -Math.PI / 2 + (i - 2) * 0.45;
+                    octx.beginPath();
+                    octx.ellipse(center + Math.cos(a) * r * 0.35, center - r * 0.55 + Math.sin(a) * r * 0.15, r * 0.22, r * 0.1, a, 0, Math.PI * 2);
+                    octx.fill();
+                }
+                octx.fillStyle = '#365314';
+                octx.beginPath();
+                octx.arc(center, center - r * 0.55, r * 0.12, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 2) {
+                // Grape — deep purple with bloom
+                const g = octx.createRadialGradient(center - r * 0.3, center - r * 0.3, r * 0.05, center, center, r);
+                g.addColorStop(0, '#DDD6FE');
+                g.addColorStop(0.35, '#A78BFA');
+                g.addColorStop(0.75, '#7C3AED');
+                g.addColorStop(1, '#5B21B6');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Bloom / powder
+                octx.fillStyle = 'rgba(255,255,255,0.18)';
+                octx.beginPath();
+                octx.arc(center - r * 0.25, center - r * 0.25, r * 0.35, 0, Math.PI * 2);
+                octx.fill();
+                // Specular
+                octx.fillStyle = 'rgba(255,255,255,0.5)';
+                octx.beginPath();
+                octx.ellipse(center - r * 0.3, center - r * 0.35, r * 0.18, r * 0.12, -0.4, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 3) {
+                // Lemon — slightly elongated yellow with pores
+                const g = octx.createRadialGradient(center - r * 0.25, center - r * 0.25, r * 0.08, center, center, r);
+                g.addColorStop(0, '#FEF08A');
+                g.addColorStop(0.5, '#EAB308');
+                g.addColorStop(1, '#A16207');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.ellipse(center, center, r * 0.92, r * 1.05, 0, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Pores (deterministic)
+                octx.fillStyle = 'rgba(161, 98, 7, 0.25)';
+                for (let i = 0; i < 22; i++) {
+                    const a = (i * 2.4) % (Math.PI * 2);
+                    const rr = r * (0.15 + ((i * 7) % 10) * 0.055);
+                    octx.beginPath();
+                    octx.arc(center + Math.cos(a) * rr, center + Math.sin(a) * rr, r * 0.035, 0, Math.PI * 2);
+                    octx.fill();
+                }
+                // Tip nubs
+                octx.fillStyle = '#CA8A04';
+                octx.beginPath();
+                octx.arc(center, center - r * 0.95, r * 0.1, 0, Math.PI * 2);
+                octx.arc(center, center + r * 0.95, r * 0.1, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 4) {
+                // Orange — textured rind + navel
+                const g = octx.createRadialGradient(center - r * 0.3, center - r * 0.3, r * 0.05, center, center, r);
+                g.addColorStop(0, '#FFEDD5');
+                g.addColorStop(0.4, '#FB923C');
+                g.addColorStop(1, '#C2410C');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Dimples
+                octx.fillStyle = 'rgba(194, 65, 12, 0.2)';
+                for (let i = 0; i < 28; i++) {
+                    const a = (i / 28) * Math.PI * 2;
+                    const rr = r * (0.2 + (i % 5) * 0.12);
+                    octx.beginPath();
+                    octx.arc(center + Math.cos(a) * rr, center + Math.sin(a) * rr, r * 0.04, 0, Math.PI * 2);
+                    octx.fill();
+                }
+                // Navel
+                octx.strokeStyle = 'rgba(154, 52, 18, 0.5)';
+                octx.lineWidth = Math.max(1, r * 0.04);
+                octx.beginPath();
+                octx.arc(center, center + r * 0.55, r * 0.12, 0, Math.PI * 2);
+                octx.stroke();
+            } else if (idx === 5) {
+                // Apple — classic red with stem + leaf
+                const g = octx.createRadialGradient(center - r * 0.25, center - r * 0.3, r * 0.08, center, center, r);
+                g.addColorStop(0, '#FECACA');
+                g.addColorStop(0.35, '#EF4444');
+                g.addColorStop(0.8, '#B91C1C');
+                g.addColorStop(1, '#7F1D1D');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center + r * 0.05, r * 0.95, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Cheek highlight
+                octx.fillStyle = 'rgba(255,255,255,0.28)';
+                octx.beginPath();
+                octx.ellipse(center - r * 0.3, center - r * 0.25, r * 0.25, r * 0.18, -0.4, 0, Math.PI * 2);
+                octx.fill();
+                // Indent at top
+                octx.fillStyle = '#7F1D1D';
+                octx.beginPath();
+                octx.ellipse(center, center - r * 0.75, r * 0.18, r * 0.08, 0, 0, Math.PI * 2);
+                octx.fill();
+                // Stem
+                octx.strokeStyle = '#44403C';
+                octx.lineWidth = Math.max(1.8, r * 0.08);
+                octx.lineCap = 'round';
+                octx.beginPath();
+                octx.moveTo(center, center - r * 0.75);
+                octx.quadraticCurveTo(center + r * 0.15, center - r * 1.05, center + r * 0.08, center - r * 1.2);
+                octx.stroke();
+                // Leaf
+                octx.fillStyle = '#65A30D';
+                octx.beginPath();
+                octx.ellipse(center + r * 0.28, center - r * 1.05, r * 0.22, r * 0.1, 0.5, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 6) {
+                // Pear — classic pear silhouette
+                const g = octx.createRadialGradient(center - r * 0.2, center - r * 0.1, r * 0.1, center, center + r * 0.15, r);
+                g.addColorStop(0, '#ECFCCB');
+                g.addColorStop(0.4, '#A3E635');
+                g.addColorStop(0.8, '#65A30D');
+                g.addColorStop(1, '#3F6212');
+                octx.fillStyle = g;
+                octx.beginPath();
+                // Bottom bulb + top neck
+                octx.moveTo(center, center - r * 0.95);
+                octx.bezierCurveTo(center + r * 0.35, center - r * 0.9, center + r * 0.45, center - r * 0.2, center + r * 0.85, center + r * 0.35);
+                octx.bezierCurveTo(center + r * 0.9, center + r * 0.85, center + r * 0.4, center + r, center, center + r);
+                octx.bezierCurveTo(center - r * 0.4, center + r, center - r * 0.9, center + r * 0.85, center - r * 0.85, center + r * 0.35);
+                octx.bezierCurveTo(center - r * 0.45, center - r * 0.2, center - r * 0.35, center - r * 0.9, center, center - r * 0.95);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Speckle (deterministic)
+                octx.fillStyle = 'rgba(63, 98, 18, 0.2)';
+                for (let i = 0; i < 12; i++) {
+                    const a = (i * 2.7) % (Math.PI * 2);
+                    const rr = r * (0.12 + ((i * 5) % 8) * 0.05);
+                    octx.beginPath();
+                    octx.arc(center + Math.cos(a) * rr, center + r * 0.15 + Math.sin(a) * rr, r * 0.03, 0, Math.PI * 2);
+                    octx.fill();
+                }
+                // Stem
+                octx.strokeStyle = '#44403C';
+                octx.lineWidth = Math.max(1.5, r * 0.07);
+                octx.beginPath();
+                octx.moveTo(center, center - r * 0.9);
+                octx.lineTo(center + r * 0.05, center - r * 1.15);
+                octx.stroke();
+            } else if (idx === 7) {
+                // Peach — soft pink-orange with crease
+                const g = octx.createRadialGradient(center - r * 0.25, center - r * 0.25, r * 0.1, center, center, r);
+                g.addColorStop(0, '#FFE4E6');
+                g.addColorStop(0.35, '#FB7185');
+                g.addColorStop(0.7, '#F43F5E');
+                g.addColorStop(1, '#BE123C');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Soft cheek
+                octx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+                octx.beginPath();
+                octx.ellipse(center - r * 0.28, center - r * 0.28, r * 0.28, r * 0.2, -0.4, 0, Math.PI * 2);
+                octx.fill();
+                // Crease
+                octx.strokeStyle = 'rgba(159, 18, 57, 0.35)';
+                octx.lineWidth = Math.max(1.5, r * 0.05);
+                octx.beginPath();
+                octx.moveTo(center, center - r * 0.85);
+                octx.quadraticCurveTo(center + r * 0.08, center, center, center + r * 0.85);
+                octx.stroke();
+                // Leaf
+                octx.fillStyle = '#4D7C0F';
+                octx.beginPath();
+                octx.ellipse(center + r * 0.2, center - r * 0.95, r * 0.2, r * 0.09, 0.4, 0, Math.PI * 2);
+                octx.fill();
+            } else if (idx === 8) {
+                // Pineapple — hexagonal diamond pattern + leafy crown
+                const g = octx.createRadialGradient(center - r * 0.2, center - r * 0.2, r * 0.1, center, center, r);
+                g.addColorStop(0, '#FEF3C7');
+                g.addColorStop(0.4, '#FBBF24');
+                g.addColorStop(1, '#B45309');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.ellipse(center, center + r * 0.08, r * 0.88, r * 0.95, 0, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Diamond pattern
+                octx.strokeStyle = 'rgba(146, 64, 14, 0.55)';
+                octx.lineWidth = Math.max(1, r * 0.035);
+                const rows = 5;
+                const cols = 4;
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const x = center - r * 0.55 + (col + (row % 2) * 0.5) * (r * 0.35);
+                        const y = center - r * 0.55 + row * (r * 0.32);
+                        octx.beginPath();
+                        octx.moveTo(x, y - r * 0.12);
+                        octx.lineTo(x + r * 0.14, y);
+                        octx.lineTo(x, y + r * 0.12);
+                        octx.lineTo(x - r * 0.14, y);
+                        octx.closePath();
+                        octx.stroke();
+                    }
+                }
+                // Crown leaves
+                octx.fillStyle = '#3F6212';
+                for (let i = 0; i < 7; i++) {
+                    const a = -Math.PI / 2 + (i - 3) * 0.28;
+                    octx.beginPath();
+                    octx.moveTo(center, center - r * 0.75);
+                    octx.quadraticCurveTo(
+                        center + Math.cos(a) * r * 0.55,
+                        center - r * 0.75 + Math.sin(a) * r * 0.2 - r * 0.35,
+                        center + Math.cos(a) * r * 0.35,
+                        center - r * 1.25
+                    );
+                    octx.quadraticCurveTo(
+                        center + Math.cos(a) * r * 0.15,
+                        center - r * 0.9,
+                        center, center - r * 0.75
+                    );
+                    octx.fill();
+                }
+            } else if (idx === 9) {
+                // Melon (honeydew / cantaloupe style) — netted rind
+                const g = octx.createRadialGradient(center - r * 0.25, center - r * 0.25, r * 0.1, center, center, r);
+                g.addColorStop(0, '#D1FAE5');
+                g.addColorStop(0.4, '#34D399');
+                g.addColorStop(0.85, '#059669');
+                g.addColorStop(1, '#064E3B');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Netting
+                octx.strokeStyle = 'rgba(6, 78, 59, 0.35)';
+                octx.lineWidth = Math.max(1, r * 0.025);
+                for (let i = -3; i <= 3; i++) {
+                    octx.beginPath();
+                    octx.ellipse(center, center, r * 0.85, r * 0.35 + Math.abs(i) * r * 0.08, 0.2 * i, 0, Math.PI * 2);
+                    octx.stroke();
+                }
+                for (let i = 0; i < 8; i++) {
+                    const a = (i / 8) * Math.PI * 2;
+                    octx.beginPath();
+                    octx.moveTo(center + Math.cos(a) * r * 0.15, center + Math.sin(a) * r * 0.15);
+                    octx.lineTo(center + Math.cos(a) * r * 0.9, center + Math.sin(a) * r * 0.9);
+                    octx.stroke();
+                }
+            } else {
+                // Watermelon — dark green stripes + light bands
+                const g = octx.createRadialGradient(center - r * 0.2, center - r * 0.2, r * 0.1, center, center, r);
+                g.addColorStop(0, '#6EE7B7');
+                g.addColorStop(0.35, '#10B981');
+                g.addColorStop(0.7, '#047857');
+                g.addColorStop(1, '#022C22');
+                octx.fillStyle = g;
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.fill();
+                octx.shadowColor = 'transparent';
+                // Dark stripes
+                octx.save();
+                octx.beginPath();
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.clip();
+                octx.strokeStyle = '#022C22';
+                octx.lineWidth = Math.max(3, r * 0.12);
+                octx.lineCap = 'round';
+                for (let i = -4; i <= 4; i++) {
+                    octx.beginPath();
+                    octx.ellipse(center + i * r * 0.22, center, r * 0.35, r * 0.95, 0.15, 0, Math.PI * 2);
+                    octx.stroke();
+                }
+                octx.restore();
+                // Light highlight band
+                octx.fillStyle = 'rgba(255,255,255,0.12)';
+                octx.beginPath();
+                octx.ellipse(center - r * 0.25, center - r * 0.3, r * 0.4, r * 0.25, -0.5, 0, Math.PI * 2);
+                octx.fill();
+            }
+
+            // Soft outer rim for definition
+            octx.strokeStyle = config.borderColor;
+            octx.globalAlpha = 0.55;
+            octx.lineWidth = Math.max(1.5, r * 0.035);
+            octx.beginPath();
+            if (idx === 1) {
+                // strawberry already non-circle; skip heavy stroke
+            } else if (idx === 3) {
+                octx.ellipse(center, center, r * 0.92, r * 1.05, 0, 0, Math.PI * 2);
+                octx.stroke();
+            } else if (idx === 6) {
+                // pear shape already filled
+            } else if (idx === 8) {
+                octx.ellipse(center, center + r * 0.08, r * 0.88, r * 0.95, 0, 0, Math.PI * 2);
+                octx.stroke();
+            } else {
+                octx.arc(center, center, r, 0, Math.PI * 2);
+                octx.stroke();
+            }
+            octx.globalAlpha = 1;
+            octx.restore();
+        }
+
+        function drawFruitFaceAndTexture(ctx, tierIndex, cx, cy, r, mood = 'normal') {
+            ctx.save();
+            ctx.translate(cx, cy);
+            drawCuteFace(ctx, tierIndex, r, mood);
+            ctx.restore();
+        }
+
         const cachedFruitCanvases = [];
-        const targetDPR = Math.min(window.devicePixelRatio || 1, 1.5);
+        // Cap pixel budget so large / high-DPI screens stay smooth
+        const MAX_CANVAS_PIXELS = 900000; // ~950x950 @1x or ~670x670 @2x
+        let renderDPR = Math.min(window.devicePixelRatio || 1, 1.5);
+        const spriteDPR = Math.min(window.devicePixelRatio || 1, 1.5);
+        let ghostFrameSkip = 0;
+        let magnetLineBudget = 0;
+        let drawGrid = true;
 
         function preRenderFruitSprites() {
             cachedFruitCanvases.length = 0;
-            FRUIT_TIERS.forEach(config => {
+            FRUIT_TIERS.forEach((config, idx) => {
                 const offscreen = document.createElement('canvas');
-                const pad = 4;
+                // Extra pad for stems / crowns that stick out
+                const pad = Math.max(10, Math.ceil(config.radius * 0.45));
                 const diameter = (config.radius + pad) * 2;
-                offscreen.width = Math.ceil(diameter * targetDPR);
-                offscreen.height = Math.ceil(diameter * targetDPR);
+                offscreen.width = Math.ceil(diameter * spriteDPR);
+                offscreen.height = Math.ceil(diameter * spriteDPR);
                 const octx = offscreen.getContext('2d', { alpha: true });
-                octx.scale(targetDPR, targetDPR);
+                octx.scale(spriteDPR, spriteDPR);
 
                 const center = config.radius + pad;
                 const r = config.radius;
 
-                const gradient = octx.createRadialGradient(center - r * 0.35, center - r * 0.35, r * 0.08, center, center, r);
-                gradient.addColorStop(0, config.accent);
-                gradient.addColorStop(0.75, config.color);
-                gradient.addColorStop(1, config.borderColor);
-
-                octx.fillStyle = gradient;
-                octx.beginPath();
-                octx.arc(center, center, r, 0, Math.PI * 2);
-                octx.fill();
-
-                octx.strokeStyle = config.borderColor;
-                octx.lineWidth = 2;
-                octx.stroke();
-
-                octx.beginPath();
-                octx.arc(center, center, r - 2, Math.PI * 1.05, Math.PI * 1.65);
-                octx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-                octx.lineWidth = Math.max(1.8, r * 0.05);
-                octx.stroke();
-
-                drawFruitVectorIcon(octx, config.iconType, center, center, r, config.accent);
+                drawRealisticFruit(octx, idx, center, r);
+                drawFruitFaceAndTexture(octx, idx, center, center, r, 'normal');
 
                 cachedFruitCanvases.push({ canvas: offscreen, pad, diameter });
             });
@@ -1400,24 +1693,20 @@
         let isSlicerActive = false;
         let bombCharges = 1;
         let isBombActive = false;
-
-        // Magnet Power-up State
         let magnetCharges = 1;
         let isMagnetActive = false;
-
         let wildcardCharges = 1;
         let isWildcardActive = false;
+
         let smoothedGhostLandingY = 0;
         let lastDangerTickTimestamp = 0;
 
-        // Game Modes State: 'classic' | 'blitz' | 'zen'
         let gameMode = 'classic';
         let blitzTimeRemaining = 90;
         let blitzInterval = null;
         let runMergesCount = 0;
         let runWatermelonsCount = 0;
 
-        // Milestones / Achievements
         const MILESTONES = [
             { id: 'first_merge', title: 'Fruit Initiate', desc: 'Complete your first merge', icon: 'zap' },
             { id: 'combo_3', title: 'Chain Maestro', desc: 'Achieve a 3x combo or higher', icon: 'flame' },
@@ -1430,8 +1719,6 @@
         let unlockedMilestones = [];
 
         let tiltEnabled = false;
-        let lastTapTimestamp = 0;
-
         const particles = [];
         const floatingTexts = [];
         const shockwaves = [];
@@ -1451,59 +1738,69 @@
 
         function resizeCanvas() {
             const rect = container.getBoundingClientRect();
-            viewWidth = Math.floor(rect.width);
-            viewHeight = Math.floor(rect.height);
+            viewWidth = Math.max(280, Math.floor(rect.width));
+            viewHeight = Math.max(380, Math.floor(rect.height));
 
-            mainCanvas.width = Math.floor(viewWidth * targetDPR);
-            mainCanvas.height = Math.floor(viewHeight * targetDPR);
+            // Adaptive DPR: keep total pixels under budget on big screens
+            const nativeDpr = Math.min(window.devicePixelRatio || 1, 2);
+            const area = viewWidth * viewHeight;
+            renderDPR = Math.min(nativeDpr, Math.sqrt(MAX_CANVAS_PIXELS / Math.max(area, 1)));
+            renderDPR = Math.max(0.75, Math.min(1.5, Math.round(renderDPR * 100) / 100));
+            // Skip decorative grid when canvas is large (many stroke calls)
+            drawGrid = (viewWidth * viewHeight) < 320000;
+
+            mainCanvas.width = Math.floor(viewWidth * renderDPR);
+            mainCanvas.height = Math.floor(viewHeight * renderDPR);
             ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.scale(targetDPR, targetDPR);
+            ctx.scale(renderDPR, renderDPR);
+            // Slight quality trade for speed on big canvases
+            ctx.imageSmoothingEnabled = renderDPR < 1.25;
+            ctx.imageSmoothingQuality = renderDPR >= 1.25 ? 'high' : 'medium';
 
             if (world) {
                 const removeList = [ground, leftWall, rightWall, leftCornerWedge, rightCornerWedge].filter(Boolean);
                 Composite.remove(world, removeList);
 
-                const wallThickness = 60;
-                ground = Bodies.rectangle(viewWidth / 2, viewHeight + wallThickness / 2, viewWidth * 2, wallThickness, {
-                    isStatic: true, restitution: 0.1, friction: 0.8
+                const wallThickness = 100;
+                ground = Bodies.rectangle(viewWidth / 2, viewHeight + wallThickness / 2, viewWidth * 3, wallThickness, {
+                    isStatic: true, restitution: 0.12, friction: 0.8
                 });
 
-                leftWall = Bodies.rectangle(-wallThickness / 2, viewHeight / 2, wallThickness, viewHeight * 2, {
-                    isStatic: true, restitution: 0.1, friction: 0.4
+                leftWall = Bodies.rectangle(-wallThickness / 2, viewHeight / 2, wallThickness, viewHeight * 3, {
+                    isStatic: true, restitution: 0.12, friction: 0.4
                 });
 
-                rightWall = Bodies.rectangle(viewWidth + wallThickness / 2, viewHeight / 2, wallThickness, viewHeight * 2, {
-                    isStatic: true, restitution: 0.1, friction: 0.4
+                rightWall = Bodies.rectangle(viewWidth + wallThickness / 2, viewHeight / 2, wallThickness, viewHeight * 3, {
+                    isStatic: true, restitution: 0.12, friction: 0.4
                 });
 
-                const wedgeSize = 36;
-                leftCornerWedge = Bodies.fromVertices(wedgeSize / 2, viewHeight - wedgeSize / 2, [
-                    { x: 0, y: viewHeight },
-                    { x: wedgeSize, y: viewHeight },
-                    { x: 0, y: viewHeight - wedgeSize }
-                ], { isStatic: true, friction: 0.5 });
+                const wedgeHypot = 50;
+                leftCornerWedge = Bodies.rectangle(12, viewHeight - 12, wedgeHypot, 18, {
+                    isStatic: true,
+                    angle: Math.PI / 4,
+                    friction: 0.3
+                });
 
-                rightCornerWedge = Bodies.fromVertices(viewWidth - wedgeSize / 2, viewHeight - wedgeSize / 2, [
-                    { x: viewWidth, y: viewHeight },
-                    { x: viewWidth - wedgeSize, y: viewHeight },
-                    { x: viewWidth, y: viewHeight - wedgeSize }
-                ], { isStatic: true, friction: 0.5 });
+                rightCornerWedge = Bodies.rectangle(viewWidth - 12, viewHeight - 12, wedgeHypot, 18, {
+                    isStatic: true,
+                    angle: -Math.PI / 4,
+                    friction: 0.3
+                });
 
                 Composite.add(world, [ground, leftWall, rightWall, leftCornerWedge, rightCornerWedge]);
 
-                // Clamp all active dynamic bodies inside the newly scaled boundary
                 const dynamicBodies = Composite.allBodies(world);
                 for (let i = 0; i < dynamicBodies.length; i++) {
                     const b = dynamicBodies[i];
                     if (b.fruitData && !b.isStatic) {
                         const r = b.fruitData.radius;
-                        const minX = r + 14;
-                        const maxX = viewWidth - r - 14;
+                        const minX = r + 8;
+                        const maxX = viewWidth - r - 8;
                         const clampedX = Math.max(minX, Math.min(maxX, b.position.x));
-                        const clampedY = Math.min(viewHeight - r - 8, b.position.y);
+                        const clampedY = Math.min(viewHeight - r - 6, b.position.y);
                         if (clampedX !== b.position.x || clampedY !== b.position.y) {
                             Body.setPosition(b, { x: clampedX, y: clampedY });
-                            Body.setVelocity(b, { x: b.velocity.x * 0.4, y: b.velocity.y * 0.4 });
+                            Body.setVelocity(b, { x: b.velocity.x * 0.3, y: b.velocity.y * 0.3 });
                         }
                     }
                 }
@@ -1524,12 +1821,14 @@
         function initPhysics() {
             engine = Engine.create({
                 enableSleeping: true,
-                positionIterations: 4,
+                positionIterations: 5,
                 velocityIterations: 4,
                 constraintIterations: 1,
                 gravity: { x: 0, y: 1.35, scale: 0.0012 }
             });
             world = engine.world;
+            // Sleep faster so settled fruit stop costing CPU
+            engine.timing.timeScale = 1;
 
             resizeCanvas();
 
@@ -1539,14 +1838,23 @@
                 for (let i = 0; i < len; i++) {
                     const { bodyA, bodyB } = pairs[i];
 
-                    // Trigger elastic squash-and-stretch on significant collision
                     if (bodyA.fruitData) {
                         bodyA.fruitData.scaleX = 1.12;
                         bodyA.fruitData.scaleY = 0.88;
+                        bodyA.fruitData.squishTime = performance.now();
                     }
                     if (bodyB.fruitData) {
                         bodyB.fruitData.scaleX = 1.12;
                         bodyB.fruitData.scaleY = 0.88;
+                        bodyB.fruitData.squishTime = performance.now();
+                    }
+
+                    const relVx = (bodyA.velocity?.x || 0) - (bodyB.velocity?.x || 0);
+                    const relVy = (bodyA.velocity?.y || 0) - (bodyB.velocity?.y || 0);
+                    const impactSpeed = Math.hypot(relVx, relVy);
+                    if (impactSpeed > 1.8 && (bodyA.fruitData || bodyB.fruitData)) {
+                        const maxTier = Math.max(bodyA.fruitData?.tier ?? 0, bodyB.fruitData?.tier ?? 0);
+                        audio.playBounce(impactSpeed, maxTier);
                     }
 
                     if (bodyA.fruitData && bodyB.fruitData) {
@@ -1564,11 +1872,11 @@
         function createFruitBody(x, y, tierIndex, vx = 0, vy = 0, angle = 0, isWildcard = false) {
             const config = FRUIT_TIERS[tierIndex];
             const body = Bodies.circle(x, y, config.radius, {
-                restitution: 0.12,
-                friction: 0.55,
-                frictionStatic: 0.75,
-                frictionAir: 0.008,
-                density: 0.002 + (tierIndex * 0.0002),
+                restitution: 0.15,
+                friction: 0.6,
+                frictionStatic: 0.8,
+                frictionAir: 0.012,
+                density: 0.002 + (tierIndex * 0.00025),
                 angle: angle,
                 sleepThreshold: 15,
                 fruitData: {
@@ -1576,8 +1884,7 @@
                     radius: config.radius,
                     toMerge: false,
                     bornAt: Date.now(),
-                    scaleX: 1.0,
-                    scaleY: 1.0,
+                    squishTime: 0,
                     isWildcard: !!isWildcard
                 }
             });
@@ -1589,11 +1896,15 @@
         }
 
         function handleFruitMerge(bodyA, bodyB) {
+            if (!Composite.allBodies(world).includes(bodyA) || !Composite.allBodies(world).includes(bodyB)) {
+                return;
+            }
+
             bodyA.fruitData.toMerge = true;
             bodyB.fruitData.toMerge = true;
 
             const now = Date.now();
-            comboCount = (now - lastMergeTimestamp < 1400) ? comboCount + 1 : 1;
+            comboCount = (now - lastMergeTimestamp < 1500) ? comboCount + 1 : 1;
             lastMergeTimestamp = now;
 
             if (comboCount > maxComboThisGame) maxComboThisGame = comboCount;
@@ -1605,6 +1916,7 @@
             } else if (bodyB.fruitData.isWildcard && !bodyA.fruitData.isWildcard) {
                 baseTier = bodyA.fruitData.tier;
             }
+
             const nextTierIndex = baseTier + 1;
             const midX = (bodyA.position.x + bodyB.position.x) * 0.5;
             const midY = (bodyA.position.y + bodyB.position.y) * 0.5;
@@ -1620,6 +1932,9 @@
                 updateToolBadges();
             }
 
+            dangerFruitMap.delete(bodyA.id);
+            dangerFruitMap.delete(bodyB.id);
+
             Composite.remove(world, bodyA);
             Composite.remove(world, bodyB);
 
@@ -1634,7 +1949,7 @@
             if (score >= 2000) checkMilestone('score_2000');
 
             if (gameMode === 'blitz' && blitzTimeRemaining > 0) {
-                const bonusSecs = Math.min(6, Math.floor(nextTierIndex * 0.6) + 1);
+                const bonusSecs = Math.min(6, Math.floor(nextTierIndex * 0.7) + 1);
                 blitzTimeRemaining += bonusSecs;
                 createFloatingText(`+${bonusSecs}s`, midX, midY - 24, '#FDE047');
                 updateBlitzHUD();
@@ -1644,7 +1959,7 @@
                 unlockTier(nextTierIndex);
             }
 
-            nudgeEnergy = Math.min(100, nudgeEnergy + 16);
+            nudgeEnergy = Math.min(100, nudgeEnergy + 18);
             if (stats.totalMerges % 6 === 0) undoCharges = Math.min(2, undoCharges + 1);
             if (stats.totalMerges % 10 === 0) magnetCharges = Math.min(2, magnetCharges + 1);
             if (stats.totalMerges % 14 === 0) wildcardCharges = Math.min(2, wildcardCharges + 1);
@@ -1656,11 +1971,11 @@
             createBurstFX(midX, midY, config.color);
             createFloatingText(`+${addedPoints}`, midX, midY, config.accent);
             createShockwave(midX, midY, config.radius * 2);
-            applyRadialPhysicsShockwave(midX, midY, config.radius * 2.5);
+            applyRadialPhysicsShockwave(midX, midY, config.radius * 2.6);
 
             if (bodyA.fruitData.tier >= 4) {
                 container.classList.add('cabinet-shake');
-                setTimeout(() => container.classList.remove('cabinet-shake'), 200);
+                setTimeout(() => container.classList.remove('cabinet-shake'), 220);
             }
 
             if (comboCount > 1) {
@@ -1672,7 +1987,6 @@
                 comboPill._timer = setTimeout(() => comboPill.classList.add('hidden'), 1500);
             }
 
-            // Ultimate Watermelon Ascension Supernova
             if (baseTier === FRUIT_TIERS.length - 1) {
                 stats.totalWatermelons++;
                 runWatermelonsCount++;
@@ -1683,13 +1997,11 @@
 
             if (nextTierIndex < FRUIT_TIERS.length) {
                 const newBody = createFruitBody(midX, midY, nextTierIndex);
-                newBody.fruitData.scaleX = 1.25;
-                newBody.fruitData.scaleY = 0.8;
                 Composite.add(world, newBody);
 
                 Body.setVelocity(newBody, {
-                    x: (Math.random() - 0.5) * 1.0,
-                    y: -2.0
+                    x: (Math.random() - 0.5) * 0.8,
+                    y: -1.8
                 });
             }
 
@@ -1702,11 +2014,10 @@
         function triggerWatermelonSupernova(cx, cy) {
             audio.playSupernova();
             safeVibrate([40, 50, 60]);
-            createShockwave(cx, cy, 180);
+            createShockwave(cx, cy, 220);
             createFloatingText('SUPERNOVA!', cx, cy - 20, '#34D399');
 
-            // Vaporize tiny blocking debris within supernova burst radius
-            const blastRadius = 150;
+            const blastRadius = 160;
             const bodies = Composite.allBodies(world);
             for (let i = 0; i < bodies.length; i++) {
                 const b = bodies[i];
@@ -1721,7 +2032,7 @@
             }
 
             if (window.confetti) {
-                window.confetti({ particleCount: 140, spread: 90, origin: { y: 0.55 } });
+                window.confetti({ particleCount: 150, spread: 100, origin: { y: 0.55 } });
             }
         }
 
@@ -1737,7 +2048,7 @@
                     if (dist < maxRadius && dist > 1) {
                         Matter.Sleeping.set(b, false);
                         const factor = (1 - (dist / maxRadius));
-                        const forceMagnitude = factor * 0.007 * b.mass;
+                        const forceMagnitude = factor * 0.008 * b.mass;
                         Body.applyForce(b, b.position, {
                             x: (dx / dist) * forceMagnitude,
                             y: (dy / dist) * forceMagnitude - (factor * 0.003 * b.mass)
@@ -1749,36 +2060,36 @@
 
         function createShockwave(x, y, maxR) {
             if (shockwaves.length > 3) shockwaves.shift();
-            shockwaves.push({ x, y, radius: 6, maxRadius: maxR, alpha: 0.7, growth: 5 });
+            shockwaves.push({ x, y, radius: 6, maxRadius: maxR, alpha: 0.75, growth: 5.5 });
         }
 
         function createBurstFX(x, y, color) {
-            if (particles.length > 30) particles.splice(0, 10);
-            const count = 7;
+            if (particles.length > 28) particles.splice(0, 12);
+            const count = 6;
             for (let i = 0; i < count; i++) {
                 const angle = (Math.PI * 2 / count) * i;
-                const speed = Math.random() * 3 + 2;
+                const speed = Math.random() * 3.5 + 2;
                 particles.push({
                     x, y,
                     vx: Math.cos(angle) * speed,
                     vy: Math.sin(angle) * speed,
                     color,
-                    radius: Math.random() * 2 + 1.2,
+                    radius: Math.random() * 2.5 + 1.5,
                     alpha: 1,
-                    decay: 0.04
+                    decay: 0.05
                 });
             }
         }
 
         function createFloatingText(text, x, y, color) {
-            if (floatingTexts.length > 6) floatingTexts.shift();
+            if (floatingTexts.length > 5) floatingTexts.shift();
             floatingTexts.push({
                 text,
                 x, y: y - 10,
                 vy: -1.3,
                 alpha: 1,
                 color: color || '#FFFFFF',
-                decay: 0.025
+                decay: 0.024
             });
         }
 
@@ -1791,13 +2102,55 @@
             el._timer = setTimeout(() => {
                 el.classList.remove('opacity-100', 'scale-105');
                 el.classList.add('opacity-0', 'scale-50');
-            }, 600);
+            }, 650);
         }
 
-        function triggerWatermelonCelebration() {
-            if (window.confetti) {
-                window.confetti({ particleCount: 100, spread: 80, origin: { y: 0.55 } });
-            }
+        function getRandomSpawnTier() {
+            const rand = Math.random();
+            if (rand < 0.44) return 0;
+            if (rand < 0.74) return 1;
+            if (rand < 0.90) return 2;
+            if (rand < 0.98) return 3;
+            return 4;
+        }
+
+        function pickInitialFruits() {
+            currentTier = getRandomSpawnTier();
+            nextTierQueue = [getRandomSpawnTier(), getRandomSpawnTier()];
+            holdTier = null;
+            canHold = true;
+            lastDroppedBody = null;
+            unlockTier(currentTier);
+            nextTierQueue.forEach(t => unlockTier(t));
+            updateHoldDisplay();
+            updateQueuePreviews();
+            clampDropX();
+            updateDynamicColorLighting();
+            updateRoadmapBoardPresence();
+        }
+
+        function rollNextFruit() {
+            currentTier = nextTierQueue.shift();
+            nextTierQueue.push(getRandomSpawnTier());
+            unlockTier(currentTier);
+            nextTierQueue.forEach(t => unlockTier(t));
+            updateQueuePreviews();
+            clampDropX();
+            updateDynamicColorLighting();
+            updateRoadmapBoardPresence();
+        }
+
+        function updateQueuePreviews() {
+            const t1 = nextTierQueue[0];
+            const t2 = nextTierQueue[1];
+
+            const nameDesk = document.getElementById('next-fruit-name-desktop');
+            if (nameDesk) nameDesk.textContent = FRUIT_TIERS[t1].name;
+
+            drawSpriteOnContext(nextCtxDesktop1, 48, 48, t1);
+            drawSpriteOnContext(nextCtxDesktop2, 36, 36, t2);
+            drawSpriteOnContext(nextCtxMobile1, 20, 20, t1);
+            drawSpriteOnContext(nextCtxMobile2, 16, 16, t2);
         }
 
         function updateDynamicColorLighting() {
@@ -1809,11 +2162,13 @@
 
         function updateWatermelonProgressBar() {
             let maxTier = 0;
-            const bodies = Composite.allBodies(world);
-            for (let i = 0; i < bodies.length; i++) {
-                const b = bodies[i];
-                if (b.fruitData && b.fruitData.tier > maxTier) {
-                    maxTier = b.fruitData.tier;
+            if (world) {
+                const bodies = Composite.allBodies(world);
+                for (let i = 0; i < bodies.length; i++) {
+                    const b = bodies[i];
+                    if (b.fruitData && b.fruitData.tier > maxTier) {
+                        maxTier = b.fruitData.tier;
+                    }
                 }
             }
             const pct = Math.min(100, Math.round((maxTier / 10) * 100));
@@ -1821,7 +2176,7 @@
             const barEl = document.getElementById('watermelon-progress-bar');
             if (textEl) textEl.textContent = `${pct}%`;
             if (barEl) barEl.style.width = `${pct}%`;
-            // Mobile compact progress
+
             const textMobile = document.getElementById('watermelon-progress-text-mobile');
             const barMobile = document.getElementById('watermelon-progress-bar-mobile');
             if (textMobile) textMobile.textContent = `${pct}%`;
@@ -1844,7 +2199,7 @@
             canHold = false;
             updateHoldDisplay();
             updateDynamicColorLighting();
-            if (navigator.vibrate) navigator.vibrate(15);
+            safeVibrate(15);
             scheduleSessionAutoSave();
         }
 
@@ -1855,13 +2210,13 @@
             if (holdTier === null) {
                 holdCtxDesktop.clearRect(0, 0, 56, 56);
                 holdCtxMobile.clearRect(0, 0, 20, 20);
-                holderDesk.classList.remove('hidden');
-                nameDesk.textContent = 'Reserve';
+                if (holderDesk) holderDesk.classList.remove('hidden');
+                if (nameDesk) nameDesk.textContent = 'Reserve';
                 return;
             }
 
-            holderDesk.classList.add('hidden');
-            nameDesk.textContent = FRUIT_TIERS[holdTier].name;
+            if (holderDesk) holderDesk.classList.add('hidden');
+            if (nameDesk) nameDesk.textContent = FRUIT_TIERS[holdTier].name;
 
             drawSpriteOnContext(holdCtxDesktop, 56, 56, holdTier);
             drawSpriteOnContext(holdCtxMobile, 20, 20, holdTier);
@@ -1899,7 +2254,7 @@
 
             audio.playNudge();
             container.classList.add('cabinet-shake');
-            setTimeout(() => container.classList.remove('cabinet-shake'), 200);
+            setTimeout(() => container.classList.remove('cabinet-shake'), 220);
 
             const bodies = Composite.allBodies(world);
             for (let i = 0; i < bodies.length; i++) {
@@ -1926,14 +2281,14 @@
             audio.playMagnet();
 
             const magnetOverlay = document.getElementById('magnet-overlay');
-            magnetOverlay.classList.remove('hidden');
+            if (magnetOverlay) magnetOverlay.classList.remove('hidden');
 
             createShockwave(viewWidth / 2, viewHeight / 2, viewWidth * 0.8);
             safeVibrate([40, 60]);
 
             setTimeout(() => {
                 isMagnetActive = false;
-                magnetOverlay.classList.add('hidden');
+                if (magnetOverlay) magnetOverlay.classList.add('hidden');
                 scheduleSessionAutoSave();
             }, 3000);
         }
@@ -1979,8 +2334,8 @@
             const sliceOverlay = document.getElementById('slicer-overlay');
             const bombOverlay = document.getElementById('bomb-overlay');
 
-            sliceOverlay.classList.toggle('hidden', !isSlicerActive);
-            bombOverlay.classList.toggle('hidden', !isBombActive);
+            if (sliceOverlay) sliceOverlay.classList.toggle('hidden', !isSlicerActive);
+            if (bombOverlay) bombOverlay.classList.toggle('hidden', !isBombActive);
 
             container.style.cursor = (isSlicerActive || isBombActive) ? 'crosshair' : 'default';
         }
@@ -2042,7 +2397,7 @@
                 }
 
                 container.classList.add('cabinet-shake');
-                setTimeout(() => container.classList.remove('cabinet-shake'), 200);
+                setTimeout(() => container.classList.remove('cabinet-shake'), 220);
 
                 bombCharges = 0;
                 isBombActive = false;
@@ -2058,40 +2413,40 @@
 
         function updateToolBadges() {
             const undoBadge = document.getElementById('undo-charge-badge');
-            undoBadge.textContent = `${undoCharges} USE`;
+            if (undoBadge) undoBadge.textContent = `${undoCharges} USE`;
             const btnUndo = document.getElementById('btn-tool-undo');
             const btnMobileUndo = document.getElementById('btn-mobile-undo');
             const undoActive = undoCharges > 0 && lastDroppedBody !== null;
-            btnUndo.disabled = !undoActive;
-            btnMobileUndo.style.opacity = undoActive ? '1' : '0.4';
+            if (btnUndo) btnUndo.disabled = !undoActive;
+            if (btnMobileUndo) btnMobileUndo.style.opacity = undoActive ? '1' : '0.4';
 
             const nudgeBadge = document.getElementById('nudge-charge-badge');
-            nudgeBadge.textContent = `${Math.floor(nudgeEnergy)}%`;
+            if (nudgeBadge) nudgeBadge.textContent = `${Math.floor(nudgeEnergy)}%`;
             const btnNudge = document.getElementById('btn-tool-nudge');
             const btnMobileNudge = document.getElementById('btn-mobile-nudge');
-            btnNudge.disabled = nudgeEnergy < 25;
-            btnMobileNudge.style.opacity = nudgeEnergy < 25 ? '0.4' : '1';
+            if (btnNudge) btnNudge.disabled = nudgeEnergy < 25;
+            if (btnMobileNudge) btnMobileNudge.style.opacity = nudgeEnergy < 25 ? '0.4' : '1';
 
             const magnetBadge = document.getElementById('magnet-charge-badge');
-            magnetBadge.textContent = magnetCharges > 0 ? 'READY' : '0/1';
+            if (magnetBadge) magnetBadge.textContent = magnetCharges > 0 ? 'READY' : '0/1';
             const btnMagnet = document.getElementById('btn-tool-magnet');
             const btnMobileMagnet = document.getElementById('btn-mobile-magnet');
-            btnMagnet.disabled = magnetCharges <= 0;
-            btnMobileMagnet.style.opacity = magnetCharges <= 0 ? '0.4' : '1';
+            if (btnMagnet) btnMagnet.disabled = magnetCharges <= 0;
+            if (btnMobileMagnet) btnMobileMagnet.style.opacity = magnetCharges <= 0 ? '0.4' : '1';
 
             const sliceBadge = document.getElementById('slice-charge-badge');
-            sliceBadge.textContent = slicerCharges > 0 ? 'READY' : '0/1';
+            if (sliceBadge) sliceBadge.textContent = slicerCharges > 0 ? 'READY' : '0/1';
             const btnSlice = document.getElementById('btn-tool-slice');
             const btnMobileSlice = document.getElementById('btn-mobile-slice');
-            btnSlice.disabled = slicerCharges <= 0;
-            btnMobileSlice.style.opacity = slicerCharges <= 0 ? '0.4' : '1';
+            if (btnSlice) btnSlice.disabled = slicerCharges <= 0;
+            if (btnMobileSlice) btnMobileSlice.style.opacity = slicerCharges <= 0 ? '0.4' : '1';
 
             const bombBadge = document.getElementById('bomb-charge-badge');
-            bombBadge.textContent = bombCharges > 0 ? 'READY' : '0/1';
+            if (bombBadge) bombBadge.textContent = bombCharges > 0 ? 'READY' : '0/1';
             const btnBomb = document.getElementById('btn-tool-bomb');
             const btnMobileBomb = document.getElementById('btn-mobile-bomb');
-            btnBomb.disabled = bombCharges <= 0;
-            btnMobileBomb.style.opacity = bombCharges <= 0 ? '0.4' : '1';
+            if (btnBomb) btnBomb.disabled = bombCharges <= 0;
+            if (btnMobileBomb) btnMobileBomb.style.opacity = bombCharges <= 0 ? '0.4' : '1';
 
             const wildcardBadge = document.getElementById('wildcard-charge-badge');
             if (wildcardBadge) {
@@ -2103,86 +2458,26 @@
             if (btnMobileWildcard) btnMobileWildcard.style.opacity = (wildcardCharges > 0 || isWildcardActive) ? '1' : '0.4';
         }
 
-        function getRandomSpawnTier() {
-            const rand = Math.random();
-            if (rand < 0.44) return 0;
-            if (rand < 0.74) return 1;
-            if (rand < 0.90) return 2;
-            if (rand < 0.98) return 3;
-            return 4;
-        }
-
-        function pickInitialFruits() {
-            currentTier = getRandomSpawnTier();
-            nextTierQueue = [getRandomSpawnTier(), getRandomSpawnTier()];
-            holdTier = null;
-            canHold = true;
-            lastDroppedBody = null;
-            unlockTier(currentTier);
-            nextTierQueue.forEach(t => unlockTier(t));
-            updateHoldDisplay();
-            updateQueuePreviews();
-            clampDropX();
-            updateDynamicColorLighting();
-            updateRoadmapBoardPresence();
-        }
-
-        function rollNextFruit() {
-            currentTier = nextTierQueue.shift();
-            nextTierQueue.push(getRandomSpawnTier());
-            unlockTier(currentTier);
-            nextTierQueue.forEach(t => unlockTier(t));
-            updateQueuePreviews();
-            clampDropX();
-            updateDynamicColorLighting();
-            updateRoadmapBoardPresence();
-        }
-
-        function updateQueuePreviews() {
-            const t1 = nextTierQueue[0];
-            const t2 = nextTierQueue[1];
-
-            document.getElementById('next-fruit-name-desktop').textContent = FRUIT_TIERS[t1].name;
-
-            drawSpriteOnContext(nextCtxDesktop1, 48, 48, t1);
-            drawSpriteOnContext(nextCtxDesktop2, 36, 36, t2);
-
-            drawSpriteOnContext(nextCtxMobile1, 20, 20, t1);
-            drawSpriteOnContext(nextCtxMobile2, 16, 16, t2);
-        }
-
-        function calculateGhostLandingY(targetX, radius, bodies) {
+        function calculateAccurateGhostLandingY(targetX, radius, bodies) {
             let lowestImpactY = viewHeight - radius;
-            const wedgeSize = 36;
+            const wedgeHypot = 50;
 
-            // Account for left angled corner wedge
-            if (targetX - radius < wedgeSize) {
-                const wedgeHeightAtX = viewHeight - (wedgeSize - Math.max(0, targetX - radius));
-                if (wedgeHeightAtX < lowestImpactY) {
-                    lowestImpactY = wedgeHeightAtX;
-                }
+            if (targetX - radius < wedgeHypot) {
+                const dy = (wedgeHypot - (targetX - radius));
+                if (viewHeight - dy < lowestImpactY) lowestImpactY = viewHeight - dy;
             }
-
-            // Account for right angled corner wedge
-            if (targetX + radius > viewWidth - wedgeSize) {
-                const distFromRight = viewWidth - (targetX + radius);
-                const wedgeHeightAtX = viewHeight - (wedgeSize - Math.max(0, distFromRight));
-                if (wedgeHeightAtX < lowestImpactY) {
-                    lowestImpactY = wedgeHeightAtX;
-                }
+            if (targetX + radius > viewWidth - wedgeHypot) {
+                const dy = (targetX + radius) - (viewWidth - wedgeHypot);
+                if (viewHeight - dy < lowestImpactY) lowestImpactY = viewHeight - dy;
             }
 
             const len = bodies.length;
             for (let i = 0; i < len; i++) {
                 const body = bodies[i];
                 if (body.fruitData && !body.isStatic) {
-                    // GLITCH FIX: Ignore fruits in free-fall or clearing spawner zone!
-                    // This prevents the ghost shadow from tracking on top of falling bodies.
-                    const isPlunging = body.velocity.y > 0.55 || Math.hypot(body.velocity.x, body.velocity.y) > 2.0;
+                    const isPlunging = body.velocity.y > 0.6 || Math.hypot(body.velocity.x, body.velocity.y) > 2.2;
                     const isExitingSpawner = (body.position.y < SPAWN_Y + body.fruitData.radius * 2.8) && (body.velocity.y > 0.1);
-                    if (isPlunging || isExitingSpawner) {
-                        continue;
-                    }
+                    if (isPlunging || isExitingSpawner) continue;
 
                     const dx = Math.abs(targetX - body.position.x);
                     const combinedRadius = radius + body.fruitData.radius;
@@ -2229,91 +2524,89 @@
                     isAiming = true;
                     scheduleSessionAutoSave();
                 }
-            }, 380);
+            }, 220);
         }
 
         function setupControls() {
             const touchGuide = document.getElementById('touch-aim-guide');
-            let hasDroppedThisTouch = false;
-            let pointerDownX = 0;
-            let pointerDownY = 0;
 
             function getContainerCoords(e) {
                 const rect = container.getBoundingClientRect();
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0].clientX : e.clientX);
+                const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0].clientY : e.clientY);
 
                 return {
                     x: clientX - rect.left,
                     y: clientY - rect.top,
-                    isTouch: !!e.touches
+                    isTouch: (e.pointerType === 'touch') || (e.type && e.type.startsWith('touch'))
                 };
             }
 
+            container.addEventListener('pointermove', (e) => {
+                if (isGameOver || isSlicerActive || isBombActive) return;
+                const { x, isTouch } = getContainerCoords(e);
+                targetDropX = x;
+
+                if (!isTouch) {
+                    dropX = x;
+                    clampDropX();
+                    isAiming = true;
+                } else {
+                    clampDropX();
+                    if (touchGuide) touchGuide.style.left = `${dropX}px`;
+                }
+            });
+
+            container.addEventListener('pointerenter', (e) => {
+                if (isGameOver || isSlicerActive || isBombActive) return;
+                if (e.pointerType !== 'touch') {
+                    const { x } = getContainerCoords(e);
+                    targetDropX = x;
+                    dropX = x;
+                    clampDropX();
+                    isAiming = true;
+                }
+            });
+
             container.addEventListener('pointerdown', (e) => {
                 if (isGameOver) return;
-                const { x, y } = getContainerCoords(e);
-                pointerDownX = x;
-                pointerDownY = y;
-                hasDroppedThisTouch = false;
+                const { x, y, isTouch } = getContainerCoords(e);
 
                 if (isSlicerActive || isBombActive) {
                     handleCanvasClickTool(x, y);
                     return;
                 }
 
-                const now = Date.now();
-                // Rapid double-tap hard-drop detection
-                if (now - lastTapTimestamp < 260) {
-                    targetDropX = x;
-                    dropX = x;
-                    clampDropX();
+                targetDropX = x;
+                dropX = x;
+                clampDropX();
+
+                if (isTouch) {
+                    if (touchGuide) {
+                        touchGuide.style.left = `${dropX}px`;
+                        touchGuide.style.top = `${SPAWN_Y - 26}px`;
+                        touchGuide.classList.remove('opacity-0');
+                    }
+                } else {
                     executeDrop();
-                    hasDroppedThisTouch = true;
-                    lastTapTimestamp = 0;
-                    return;
-                }
-                lastTapTimestamp = now;
-
-                targetDropX = x;
-                clampDropX();
-
-                if (e.pointerType === 'touch') {
-                    touchGuide.style.left = `${dropX}px`;
-                    touchGuide.style.top = `${SPAWN_Y - 26}px`;
-                    touchGuide.classList.remove('opacity-0');
-                }
-            });
-
-            container.addEventListener('pointermove', (e) => {
-                if (isGameOver || isSlicerActive || isBombActive) return;
-                const { x } = getContainerCoords(e);
-                targetDropX = x;
-                clampDropX();
-
-                if (e.pointerType === 'touch') {
-                    touchGuide.style.left = `${dropX}px`;
                 }
             });
 
             container.addEventListener('pointerup', (e) => {
-                touchGuide.classList.add('opacity-0');
+                if (touchGuide) touchGuide.classList.add('opacity-0');
                 if (isGameOver || isSlicerActive || isBombActive) return;
-                if (hasDroppedThisTouch) {
-                    hasDroppedThisTouch = false;
-                    return;
-                }
 
-                const { x } = getContainerCoords(e);
-                targetDropX = x;
-                dropX = targetDropX;
-                clampDropX();
-                executeDrop();
+                if (e.pointerType === 'touch') {
+                    const { x } = getContainerCoords(e);
+                    targetDropX = x;
+                    dropX = x;
+                    clampDropX();
+                    executeDrop();
+                }
             });
 
             container.addEventListener('pointercancel', () => {
-                touchGuide.classList.add('opacity-0');
-                hasDroppedThisTouch = false;
+                if (touchGuide) touchGuide.classList.add('opacity-0');
             });
 
             container.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
@@ -2346,19 +2639,23 @@
             const btnGyro = document.getElementById('btn-gyro-toggle');
             const gyroStatus = document.getElementById('gyro-status');
 
-            btnGyro.addEventListener('click', async () => {
-                if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-                    try {
-                        const permission = await DeviceOrientationEvent.requestPermission();
-                        if (permission !== 'granted') return;
-                    } catch (err) {
-                        console.error(err);
+            if (btnGyro) {
+                btnGyro.addEventListener('click', async () => {
+                    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                        try {
+                            const permission = await DeviceOrientationEvent.requestPermission();
+                            if (permission !== 'granted') return;
+                        } catch (err) {
+                            console.error(err);
+                        }
                     }
-                }
-                tiltEnabled = !tiltEnabled;
-                gyroStatus.textContent = tiltEnabled ? 'ON' : 'OFF';
-                gyroStatus.className = tiltEnabled ? 'text-emerald-400 font-bold' : 'text-slate-400';
-            });
+                    tiltEnabled = !tiltEnabled;
+                    if (gyroStatus) {
+                        gyroStatus.textContent = tiltEnabled ? 'ON' : 'OFF';
+                        gyroStatus.className = tiltEnabled ? 'text-emerald-400 font-bold' : 'text-slate-400';
+                    }
+                });
+            }
 
             window.addEventListener('deviceorientation', (e) => {
                 if (!tiltEnabled || !world) return;
@@ -2404,25 +2701,24 @@
             for (let i = 0; i < len; i++) {
                 const body = bodies[i];
                 if (body.fruitData && !body.isStatic) {
-                    if (now - body.fruitData.bornAt > 1400) {
+                    if (now - body.fruitData.bornAt > 1500) {
                         const topEdge = body.position.y - body.fruitData.radius;
                         const speed = Math.hypot(body.velocity.x, body.velocity.y);
 
-                        // Settled resting state above line check
-                        if (topEdge < DANGER_Y && speed < 0.6) {
+                        if (topEdge < DANGER_Y && speed < 0.55) {
                             isOverLimit = true;
                             if (!dangerFruitMap.has(body.id)) {
                                 dangerFruitMap.set(body.id, now);
                             } else {
                                 const duration = now - dangerFruitMap.get(body.id);
                                 if (duration > longestOverDuration) longestOverDuration = duration;
-                                if (duration > 2600) {
+                                if (duration > 2800) {
                                     if (dangerBadge) dangerBadge.classList.add('hidden');
                                     triggerGameOver('overflow');
                                     return;
                                 }
                             }
-                        } else if (topEdge >= DANGER_Y + 5 || speed > 1.2) {
+                        } else if (topEdge >= DANGER_Y + 4 || speed > 1.0) {
                             dangerFruitMap.delete(body.id);
                         }
                     }
@@ -2431,9 +2727,9 @@
 
             const dangerLineEl = document.getElementById('danger-line');
             if (isOverLimit) {
-                dangerLineEl.classList.add('danger-line-active', 'border-rose-400');
+                if (dangerLineEl) dangerLineEl.classList.add('danger-line-active', 'border-rose-400');
                 if (dangerBadge && dangerVal) {
-                    const remainingSecs = Math.max(0, (2600 - longestOverDuration) / 1000).toFixed(1);
+                    const remainingSecs = Math.max(0, (2800 - longestOverDuration) / 1000).toFixed(1);
                     dangerVal.textContent = `${remainingSecs}s`;
                     dangerBadge.classList.remove('hidden');
 
@@ -2444,7 +2740,7 @@
                     }
                 }
             } else {
-                dangerLineEl.classList.remove('danger-line-active', 'border-rose-400');
+                if (dangerLineEl) dangerLineEl.classList.remove('danger-line-active', 'border-rose-400');
                 if (dangerBadge) dangerBadge.classList.add('hidden');
             }
         }
@@ -2501,9 +2797,7 @@
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modal.querySelector('.transform').classList.remove('scale-95');
 
-            if (window.CloudPersistence) {
-                window.CloudPersistence.clearSession();
-            }
+            window.LocalPersistence.clearSession();
         }
 
         function openRestartConfirmModal() {
@@ -2574,9 +2868,7 @@
             updateDynamicColorLighting();
             updateRoadmapBoardPresence();
 
-            if (window.CloudPersistence) {
-                window.CloudPersistence.clearSession();
-            }
+            window.LocalPersistence.clearSession();
         }
 
         function setGameMode(mode) {
@@ -2648,40 +2940,6 @@
             }
         }
 
-        function checkMilestone(id) {
-            if (unlockedMilestones.includes(id)) return;
-            const milestone = MILESTONES.find(m => m.id === id);
-            if (!milestone) return;
-
-            unlockedMilestones.push(id);
-            audio.playAchievement();
-
-            const toast = document.getElementById('achievement-toast');
-            document.getElementById('achievement-toast-title').textContent = milestone.title;
-            toast.classList.remove('opacity-0', '-translate-y-4');
-            clearTimeout(toast._timer);
-            toast._timer = setTimeout(() => {
-                toast.classList.add('opacity-0', '-translate-y-4');
-            }, 3000);
-
-            updateMilestonesUI();
-            scheduleSessionAutoSave();
-        }
-
-        function copyRunCard() {
-            const shareText = `FRUIT // MERGE\nMode: ${gameMode.toUpperCase()}\nScore: ${score.toLocaleString()} pts\nBest: ${bestScore.toLocaleString()} pts\nMax Combo: ${maxComboThisGame}x\nMerges: ${runMergesCount} | Watermelons: ${runWatermelonsCount}`;
-            const tempInput = document.createElement('textarea');
-            tempInput.value = shareText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const btnText = document.getElementById('btn-share-text');
-            btnText.textContent = 'Copied!';
-            setTimeout(() => { btnText.textContent = 'Copy Result'; }, 2000);
-        }
-
         function addScore(pts) {
             score += pts;
             document.getElementById('score-display').textContent = score;
@@ -2691,210 +2949,102 @@
             }
         }
 
-        function scheduleSessionAutoSave() {
-            clearTimeout(autoSaveTimer);
-            autoSaveTimer = setTimeout(async () => {
-                if (isGameOver || !window.CloudPersistence) return;
-
-                const activeBodies = Composite.allBodies(world).filter(b => b.fruitData && !b.isStatic);
-                const fruitsData = activeBodies.map(b => ({
-                    x: Math.round(b.position.x * 10) / 10,
-                    y: Math.round(b.position.y * 10) / 10,
-                    vx: Math.round(b.velocity.x * 100) / 100,
-                    vy: Math.round(b.velocity.y * 100) / 100,
-                    angle: Math.round(b.angle * 100) / 100,
-                    tier: b.fruitData.tier
-                }));
-
-                const lastDroppedIndex = lastDroppedBody ? activeBodies.indexOf(lastDroppedBody) : -1;
-
-                const sessionState = {
-                    score,
-                    bestScore,
-                    currentTier,
-                    nextTierQueue,
-                    holdTier,
-                    canHold,
-                    nudgeEnergy,
-                    undoCharges,
-                    slicerCharges,
-                    bombCharges,
-                    magnetCharges,
-                    wildcardCharges,
-                    currentTheme,
-                    gameMode,
-                    unlockedMilestones,
-                    stats,
-                    lastDroppedIndex,
-                    fruits: fruitsData,
-                    savedAt: Date.now()
-                };
-
-                await window.CloudPersistence.saveSession(sessionState);
-                const syncDot = document.getElementById('cloud-sync-dot');
-                if (syncDot) {
-                    syncDot.classList.remove('bg-emerald-400');
-                    syncDot.classList.add('bg-sky-400');
-                    setTimeout(() => {
-                        syncDot.classList.remove('bg-sky-400');
-                        syncDot.classList.add('bg-emerald-400');
-                    }, 400);
-                }
-            }, 600);
-        }
-
-        async function restoreSavedSession() {
-            if (!window.CloudPersistence) return false;
-            const state = await window.CloudPersistence.loadSession();
-            if (!state || state.cleared || !Array.isArray(state.fruits) || state.fruits.length === 0) {
-                return false;
-            }
-
-            score = state.score || 0;
-            bestScore = state.bestScore || 0;
-            currentTier = typeof state.currentTier === 'number' ? state.currentTier : 0;
-            nextTierQueue = Array.isArray(state.nextTierQueue) ? state.nextTierQueue : [0, 1];
-            holdTier = typeof state.holdTier === 'number' ? state.holdTier : null;
-            canHold = typeof state.canHold === 'boolean' ? state.canHold : true;
-
-            nudgeEnergy = typeof state.nudgeEnergy === 'number' ? state.nudgeEnergy : 100;
-            undoCharges = typeof state.undoCharges === 'number' ? state.undoCharges : 1;
-            slicerCharges = typeof state.slicerCharges === 'number' ? state.slicerCharges : 1;
-            bombCharges = typeof state.bombCharges === 'number' ? state.bombCharges : 1;
-            magnetCharges = typeof state.magnetCharges === 'number' ? state.magnetCharges : 1;
-            wildcardCharges = typeof state.wildcardCharges === 'number' ? state.wildcardCharges : 1;
-
-            if (Array.isArray(state.unlockedMilestones)) unlockedMilestones = state.unlockedMilestones;
-            if (state.stats) Object.assign(stats, state.stats);
-            if (state.currentTheme) applyTheme(state.currentTheme);
-            if (state.gameMode) setGameMode(state.gameMode);
-
-            const currentBodies = Composite.allBodies(world);
-            for (let i = 0; i < currentBodies.length; i++) {
-                if (!currentBodies[i].isStatic) Composite.remove(world, currentBodies[i]);
-            }
-
-            const recreatedBodies = [];
-            state.fruits.forEach(f => {
-                const body = createFruitBody(f.x, f.y, f.tier, f.vx, f.vy, f.angle);
-                Composite.add(world, body);
-                recreatedBodies.push(body);
-                unlockTier(f.tier);
-            });
-
-            if (typeof state.lastDroppedIndex === 'number' && state.lastDroppedIndex >= 0 && recreatedBodies[state.lastDroppedIndex]) {
-                lastDroppedBody = recreatedBodies[state.lastDroppedIndex];
-            } else {
-                lastDroppedBody = null;
-            }
-
-            document.getElementById('score-display').textContent = score;
-            document.getElementById('best-score-display').textContent = bestScore;
-
-            buildRoadmapUI();
-            updateHoldDisplay();
-            updateQueuePreviews();
-            updateToolBadges();
-            updateWatermelonProgressBar();
-            updateDynamicColorLighting();
-            updateRoadmapBoardPresence();
-
-            const toast = document.getElementById('session-toast');
-            toast.classList.remove('opacity-0', '-translate-y-4');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', '-translate-y-4');
-            }, 2500);
-
-            return true;
-        }
-
         let dangerCheckCounter = 0;
         const FIXED_TIMESTEP = 1000 / 60;
+        let lastFrameTime = 0;
 
-        function renderLoop() {
+        function renderLoop(timestamp) {
+            // Skip frame if tab is hidden (saves CPU when minimized)
+            if (document.hidden) {
+                requestAnimationFrame(renderLoop);
+                return;
+            }
+
             Engine.update(engine, FIXED_TIMESTEP);
             ctx.clearRect(0, 0, viewWidth, viewHeight);
 
             const bodies = Composite.allBodies(world);
             const bodyCount = bodies.length;
+            const highLoad = bodyCount > 28 || (viewWidth * viewHeight) > 280000;
 
-            dropX += (targetDropX - dropX) * 0.4;
+            dropX += (targetDropX - dropX) * 0.85;
 
-            // Normalized Magnet Attraction Field
+            // Magnet: physics every frame, line drawing budgeted & cheaper
             if (isMagnetActive) {
+                magnetLineBudget = highLoad ? 4 : 12;
+                ctx.save();
+                ctx.strokeStyle = 'rgba(168, 85, 247, 0.28)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([3, 4]);
                 for (let i = 0; i < bodyCount; i++) {
                     const b1 = bodies[i];
                     if (!b1.fruitData || b1.isStatic) continue;
                     for (let j = i + 1; j < bodyCount; j++) {
                         const b2 = bodies[j];
                         if (!b2.fruitData || b2.isStatic) continue;
-                        if (b1.fruitData.tier === b2.fruitData.tier) {
-                            const dx = b2.position.x - b1.position.x;
-                            const dy = b2.position.y - b1.position.y;
-                            const dist = Math.hypot(dx, dy);
-                            if (dist > 8 && dist < 340) {
-                                Matter.Sleeping.set(b1, false);
-                                Matter.Sleeping.set(b2, false);
+                        if (b1.fruitData.tier !== b2.fruitData.tier) continue;
 
-                                // Softened inverse-square force with velocity damping to prevent rocket launches
-                                const softenedDist = dist + 40;
-                                const baseForce = Math.min(0.0006 * b1.mass, (95 / (softenedDist * softenedDist)) * b1.mass);
-                                const relVx = b2.velocity.x - b1.velocity.x;
-                                const relVy = b2.velocity.y - b1.velocity.y;
-                                const damping = 0.00015;
+                        const dx = b2.position.x - b1.position.x;
+                        const dy = b2.position.y - b1.position.y;
+                        const dist = Math.hypot(dx, dy);
+                        if (dist <= 8 || dist >= 320) continue;
 
-                                const fx = (dx / dist) * baseForce + relVx * damping;
-                                const fy = (dy / dist) * baseForce + relVy * damping;
+                        Matter.Sleeping.set(b1, false);
+                        Matter.Sleeping.set(b2, false);
 
-                                Body.applyForce(b1, b1.position, { x: fx, y: fy });
-                                Body.applyForce(b2, b2.position, { x: -fx, y: -fy });
+                        const softenedDist = dist + 50;
+                        const baseForce = Math.min(0.0005 * b1.mass, (90 / (softenedDist * softenedDist)) * b1.mass);
+                        const relVx = b2.velocity.x - b1.velocity.x;
+                        const relVy = b2.velocity.y - b1.velocity.y;
+                        const damping = 0.00012;
+                        const invDist = 1 / dist;
+                        const fx = dx * invDist * baseForce + relVx * damping;
+                        const fy = dy * invDist * baseForce + relVy * damping;
 
-                                ctx.save();
-                                ctx.strokeStyle = 'rgba(168, 85, 247, 0.28)';
-                                ctx.setLineDash([2, 4]);
-                                ctx.lineWidth = 1.5;
-                                ctx.beginPath();
-                                ctx.moveTo(b1.position.x, b1.position.y);
-                                ctx.lineTo(b2.position.x, b2.position.y);
-                                ctx.stroke();
-                                ctx.restore();
-                            }
+                        Body.applyForce(b1, b1.position, { x: fx, y: fy });
+                        Body.applyForce(b2, b2.position, { x: -fx, y: -fy });
+
+                        if (magnetLineBudget > 0) {
+                            magnetLineBudget--;
+                            ctx.beginPath();
+                            ctx.moveTo(b1.position.x, b1.position.y);
+                            ctx.lineTo(b2.position.x, b2.position.y);
+                            ctx.stroke();
                         }
                     }
                 }
+                ctx.restore();
             }
 
-            // Tech grid background
-            ctx.save();
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
-            ctx.lineWidth = 1;
-            const gridSize = 40;
-            for (let x = gridSize; x < viewWidth; x += gridSize) {
-                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, viewHeight); ctx.stroke();
+            // Decorative grid only on smaller canvases
+            if (drawGrid) {
+                ctx.save();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+                ctx.lineWidth = 1;
+                const gridSize = 48;
+                for (let x = gridSize; x < viewWidth; x += gridSize) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, viewHeight); ctx.stroke();
+                }
+                for (let y = gridSize; y < viewHeight; y += gridSize) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(viewWidth, y); ctx.stroke();
+                }
+                ctx.restore();
             }
-            for (let y = gridSize; y < viewHeight; y += gridSize) {
-                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(viewWidth, y); ctx.stroke();
-            }
-            ctx.restore();
 
-            // Corner decorative plates
-            ctx.save();
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
-            ctx.beginPath();
-            ctx.moveTo(0, viewHeight); ctx.lineTo(36, viewHeight); ctx.lineTo(0, viewHeight - 36); ctx.fill();
-            ctx.beginPath();
-            ctx.moveTo(viewWidth, viewHeight); ctx.lineTo(viewWidth - 36, viewHeight); ctx.lineTo(viewWidth, viewHeight - 36); ctx.fill();
-            ctx.restore();
-
-            // Ghost trajectory & Reticle Landing Guide
             const curFruit = FRUIT_TIERS[currentTier];
             const curRadius = curFruit.radius;
-            if (canDrop && isAiming && !isGameOver && !isSlicerActive && !isBombActive) {
-                const rawGhostY = calculateGhostLandingY(dropX, curRadius, bodies);
-                if (smoothedGhostLandingY === 0 || Math.abs(smoothedGhostLandingY - rawGhostY) > 280) {
-                    smoothedGhostLandingY = rawGhostY;
-                } else {
-                    smoothedGhostLandingY += (rawGhostY - smoothedGhostLandingY) * 0.38;
+            const showAim = canDrop && isAiming && !isGameOver && !isSlicerActive && !isBombActive;
+
+            // Ghost landing: recompute every other frame when under load
+            if (showAim) {
+                ghostFrameSkip++;
+                if (!highLoad || (ghostFrameSkip & 1) === 0) {
+                    const rawGhostY = calculateAccurateGhostLandingY(dropX, curRadius, bodies);
+                    if (smoothedGhostLandingY === 0 || Math.abs(smoothedGhostLandingY - rawGhostY) > 260) {
+                        smoothedGhostLandingY = rawGhostY;
+                    } else {
+                        smoothedGhostLandingY += (rawGhostY - smoothedGhostLandingY) * 0.6;
+                    }
                 }
                 const ghostLandingY = Math.round(smoothedGhostLandingY);
 
@@ -2908,65 +3058,71 @@
                 ctx.lineTo(dropX, ghostLandingY);
                 ctx.stroke();
 
-                // Snapped landing ring
                 ctx.beginPath();
                 ctx.arc(dropX, ghostLandingY, curRadius, 0, Math.PI * 2);
                 ctx.strokeStyle = isWildcardActive ? '#F0ABFC' : curFruit.accent;
                 ctx.lineWidth = 1.8;
                 ctx.stroke();
 
-                ctx.globalAlpha = 0.35;
-                const cached = cachedFruitCanvases[currentTier];
-                if (cached) {
-                    const pad = cached.pad;
-                    ctx.drawImage(cached.canvas, 0, 0, cached.canvas.width, cached.canvas.height, Math.round(dropX - curRadius - pad), Math.round(ghostLandingY - curRadius - pad), cached.diameter, cached.diameter);
+                // Skip semi-transparent ghost sprite on heavy frames (outline is enough)
+                if (!highLoad) {
+                    ctx.globalAlpha = 0.32;
+                    const cached = cachedFruitCanvases[currentTier];
+                    if (cached) {
+                        const pad = cached.pad;
+                        ctx.drawImage(cached.canvas, 0, 0, cached.canvas.width, cached.canvas.height, Math.round(dropX - curRadius - pad), Math.round(ghostLandingY - curRadius - pad), cached.diameter, cached.diameter);
+                    }
                 }
                 ctx.restore();
             }
 
+            const now = performance.now();
+
+            // Draw fruits — minimize save/restore when possible
             for (let i = 0; i < bodyCount; i++) {
                 const body = bodies[i];
-                if (body.fruitData) {
-                    const tier = body.fruitData.tier;
-                    const r = body.fruitData.radius;
-                    const { x, y } = body.position;
+                if (!body.fruitData) continue;
 
-                    // Rebound squash-and-stretch scales smoothly to 1.0
-                    body.fruitData.scaleX += (1.0 - body.fruitData.scaleX) * 0.16;
-                    body.fruitData.scaleY += (1.0 - body.fruitData.scaleY) * 0.16;
+                const tier = body.fruitData.tier;
+                const r = body.fruitData.radius;
+                const x = body.position.x;
+                const y = body.position.y;
+                const angle = body.angle;
 
-                    ctx.save();
-                    ctx.translate(Math.round(x), Math.round(y));
-                    ctx.rotate(body.angle);
-                    ctx.scale(body.fruitData.scaleX, body.fruitData.scaleY);
+                ctx.save();
+                ctx.translate(x, y);
+                if (angle !== 0) ctx.rotate(angle);
 
-                    // Shimmering aura for wildcard bodies
-                    if (body.fruitData.isWildcard) {
-                        ctx.save();
-                        ctx.beginPath();
-                        ctx.arc(0, 0, r + 4, 0, Math.PI * 2);
-                        ctx.strokeStyle = `hsl(${(Date.now() / 8) % 360}, 100%, 70%)`;
-                        ctx.lineWidth = 3;
-                        ctx.stroke();
-                        ctx.restore();
-                    }
-
-                    const cached = cachedFruitCanvases[tier];
-                    if (cached) {
-                        const pad = cached.pad;
-                        ctx.drawImage(cached.canvas, 0, 0, cached.canvas.width, cached.canvas.height, -r - pad, -r - pad, cached.diameter, cached.diameter);
-                    }
-                    ctx.restore();
+                if (body.fruitData.isWildcard) {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, r + 4, 0, Math.PI * 2);
+                    ctx.strokeStyle = `hsl(${(now / 7) % 360}, 100%, 70%)`;
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
                 }
+
+                const cached = cachedFruitCanvases[tier];
+                if (cached) {
+                    const pad = cached.pad;
+                    ctx.drawImage(cached.canvas, 0, 0, cached.canvas.width, cached.canvas.height, -r - pad, -r - pad, cached.diameter, cached.diameter);
+                }
+
+                // Live face overlays only when needed
+                if (body.fruitData.squishTime && (now - body.fruitData.squishTime < 240)) {
+                    drawFruitFaceAndTexture(ctx, tier, 0, 0, r, 'squished');
+                } else if (!isGameOver && (y - r < DANGER_Y + 12)) {
+                    drawFruitFaceAndTexture(ctx, tier, 0, 0, r, 'panicked');
+                }
+
+                ctx.restore();
             }
 
-            // Draw current spawner fruit
-            if (canDrop && isAiming && !isGameOver && !isSlicerActive && !isBombActive) {
+            if (showAim) {
                 ctx.save();
                 if (isWildcardActive) {
                     ctx.beginPath();
                     ctx.arc(dropX, SPAWN_Y, curRadius + 4, 0, Math.PI * 2);
-                    ctx.strokeStyle = `hsl(${(Date.now() / 8) % 360}, 100%, 70%)`;
+                    ctx.strokeStyle = `hsl(${(now / 7) % 360}, 100%, 70%)`;
                     ctx.lineWidth = 3;
                     ctx.stroke();
                 }
@@ -2978,7 +3134,7 @@
                 ctx.restore();
             }
 
-            // Shockwaves
+            // Effects — batch without per-item save when possible
             for (let i = shockwaves.length - 1; i >= 0; i--) {
                 const sw = shockwaves[i];
                 sw.radius += sw.growth;
@@ -2987,56 +3143,50 @@
                     shockwaves.splice(i, 1);
                     continue;
                 }
-                ctx.save();
                 ctx.beginPath();
                 ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
                 ctx.strokeStyle = `rgba(255, 255, 255, ${sw.alpha * 0.4})`;
                 ctx.lineWidth = 2;
                 ctx.stroke();
-                ctx.restore();
             }
 
-            // Particles
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
                 p.x += p.vx; p.y += p.vy;
                 p.vx *= 0.94; p.vy += 0.14;
                 p.alpha -= p.decay;
-
                 if (p.alpha <= 0) {
                     particles.splice(i, 1);
                     continue;
                 }
-                ctx.save();
                 ctx.globalAlpha = p.alpha;
                 ctx.fillStyle = p.color;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fill();
-                ctx.restore();
             }
+            ctx.globalAlpha = 1;
 
-            // Floating Scores
-            for (let i = floatingTexts.length - 1; i >= 0; i--) {
-                const ft = floatingTexts[i];
-                ft.y += ft.vy;
-                ft.alpha -= ft.decay;
-
-                if (ft.alpha <= 0) {
-                    floatingTexts.splice(i, 1);
-                    continue;
-                }
-                ctx.save();
-                ctx.globalAlpha = ft.alpha;
+            if (floatingTexts.length) {
                 ctx.font = '700 12px "JetBrains Mono", monospace';
-                ctx.fillStyle = ft.color;
                 ctx.textAlign = 'center';
-                ctx.fillText(ft.text, ft.x, ft.y);
-                ctx.restore();
+                for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                    const ft = floatingTexts[i];
+                    ft.y += ft.vy;
+                    ft.alpha -= ft.decay;
+                    if (ft.alpha <= 0) {
+                        floatingTexts.splice(i, 1);
+                        continue;
+                    }
+                    ctx.globalAlpha = ft.alpha;
+                    ctx.fillStyle = ft.color;
+                    ctx.fillText(ft.text, ft.x, ft.y);
+                }
+                ctx.globalAlpha = 1;
             }
 
             dangerCheckCounter++;
-            if (!isGameOver && dangerCheckCounter >= 12) {
+            if (!isGameOver && dangerCheckCounter >= (highLoad ? 14 : 10)) {
                 dangerCheckCounter = 0;
                 evaluateDangerLine(bodies);
             }
@@ -3230,6 +3380,26 @@
             }
         }
 
+        function checkMilestone(id) {
+            if (unlockedMilestones.includes(id)) return;
+            const milestone = MILESTONES.find(m => m.id === id);
+            if (!milestone) return;
+
+            unlockedMilestones.push(id);
+            audio.playAchievement();
+
+            const toast = document.getElementById('achievement-toast');
+            document.getElementById('achievement-toast-title').textContent = milestone.title;
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 3000);
+
+            updateMilestonesUI();
+            scheduleSessionAutoSave();
+        }
+
         function populateCodexModal() {
             document.getElementById('stat-total-games').textContent = stats.totalGames;
             document.getElementById('stat-total-merges').textContent = stats.totalMerges;
@@ -3292,6 +3462,136 @@
             lucide.createIcons();
         }
 
+        function copyRunCard() {
+            const shareText = `FRUIT // MERGE\nMode: ${gameMode.toUpperCase()}\nScore: ${score.toLocaleString()} pts\nBest: ${bestScore.toLocaleString()} pts\nMax Combo: ${maxComboThisGame}x\nMerges: ${runMergesCount} | Watermelons: ${runWatermelonsCount}`;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = shareText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btnText = document.getElementById('btn-share-text');
+            btnText.textContent = 'Copied!';
+            setTimeout(() => { btnText.textContent = 'Copy Result'; }, 2000);
+        }
+
+        function scheduleSessionAutoSave() {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(() => {
+                if (isGameOver) return;
+
+                const activeBodies = Composite.allBodies(world).filter(b => b.fruitData && !b.isStatic);
+                const fruitsData = activeBodies.map(b => ({
+                    x: Math.round(b.position.x * 10) / 10,
+                    y: Math.round(b.position.y * 10) / 10,
+                    vx: Math.round(b.velocity.x * 100) / 100,
+                    vy: Math.round(b.velocity.y * 100) / 100,
+                    angle: Math.round(b.angle * 100) / 100,
+                    tier: b.fruitData.tier
+                }));
+
+                const lastDroppedIndex = lastDroppedBody ? activeBodies.indexOf(lastDroppedBody) : -1;
+
+                const sessionState = {
+                    score,
+                    bestScore,
+                    currentTier,
+                    nextTierQueue,
+                    holdTier,
+                    canHold,
+                    nudgeEnergy,
+                    undoCharges,
+                    slicerCharges,
+                    bombCharges,
+                    magnetCharges,
+                    wildcardCharges,
+                    currentTheme,
+                    gameMode,
+                    unlockedMilestones,
+                    stats,
+                    lastDroppedIndex,
+                    fruits: fruitsData,
+                    savedAt: Date.now()
+                };
+
+                window.LocalPersistence.saveSession(sessionState);
+                const syncDot = document.getElementById('cloud-sync-dot');
+                if (syncDot) {
+                    syncDot.classList.remove('bg-emerald-400');
+                    syncDot.classList.add('bg-sky-400');
+                    setTimeout(() => {
+                        syncDot.classList.remove('bg-sky-400');
+                        syncDot.classList.add('bg-emerald-400');
+                    }, 350);
+                }
+            }, 600);
+        }
+
+        function restoreSavedSession() {
+            const state = window.LocalPersistence.loadSession();
+            if (!state || !Array.isArray(state.fruits) || state.fruits.length === 0) {
+                return false;
+            }
+
+            score = state.score || 0;
+            bestScore = state.bestScore || 0;
+            currentTier = typeof state.currentTier === 'number' ? state.currentTier : 0;
+            nextTierQueue = Array.isArray(state.nextTierQueue) ? state.nextTierQueue : [0, 1];
+            holdTier = typeof state.holdTier === 'number' ? state.holdTier : null;
+            canHold = typeof state.canHold === 'boolean' ? state.canHold : true;
+
+            nudgeEnergy = typeof state.nudgeEnergy === 'number' ? state.nudgeEnergy : 100;
+            undoCharges = typeof state.undoCharges === 'number' ? state.undoCharges : 1;
+            slicerCharges = typeof state.slicerCharges === 'number' ? state.slicerCharges : 1;
+            bombCharges = typeof state.bombCharges === 'number' ? state.bombCharges : 1;
+            magnetCharges = typeof state.magnetCharges === 'number' ? state.magnetCharges : 1;
+            wildcardCharges = typeof state.wildcardCharges === 'number' ? state.wildcardCharges : 1;
+
+            if (Array.isArray(state.unlockedMilestones)) unlockedMilestones = state.unlockedMilestones;
+            if (state.stats) Object.assign(stats, state.stats);
+            if (state.currentTheme) applyTheme(state.currentTheme);
+            if (state.gameMode) setGameMode(state.gameMode);
+
+            const currentBodies = Composite.allBodies(world);
+            for (let i = 0; i < currentBodies.length; i++) {
+                if (!currentBodies[i].isStatic) Composite.remove(world, currentBodies[i]);
+            }
+
+            const recreatedBodies = [];
+            state.fruits.forEach(f => {
+                const body = createFruitBody(f.x, f.y, f.tier, f.vx, f.vy, f.angle);
+                Composite.add(world, body);
+                recreatedBodies.push(body);
+                unlockTier(f.tier);
+            });
+
+            if (typeof state.lastDroppedIndex === 'number' && state.lastDroppedIndex >= 0 && recreatedBodies[state.lastDroppedIndex]) {
+                lastDroppedBody = recreatedBodies[state.lastDroppedIndex];
+            } else {
+                lastDroppedBody = null;
+            }
+
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('best-score-display').textContent = bestScore;
+
+            buildRoadmapUI();
+            updateHoldDisplay();
+            updateQueuePreviews();
+            updateToolBadges();
+            updateWatermelonProgressBar();
+            updateDynamicColorLighting();
+            updateRoadmapBoardPresence();
+
+            const toast = document.getElementById('session-toast');
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 2500);
+
+            return true;
+        }
+
         function syncThemeChecks(theme) {
             document.querySelectorAll('[data-select-theme]').forEach(btn => {
                 const checkIcon = btn.querySelector('.theme-check-icon');
@@ -3317,6 +3617,7 @@
             document.documentElement.setAttribute('data-theme', theme);
             syncThemeChecks(theme);
         }
+
         function toggleFullscreen() {
             try {
                 if (!document.fullscreenElement) {
@@ -3452,14 +3753,14 @@
             setupThemes();
         }
 
-        window.onload = async function () {
+        window.onload = function () {
             preRenderFruitSprites();
             buildRoadmapUI();
             initPhysics();
             setupControls();
             setupUI();
 
-            const restored = await restoreSavedSession();
+            const restored = restoreSavedSession();
             if (!restored) {
                 pickInitialFruits();
                 updateToolBadges();
@@ -3468,7 +3769,6 @@
             }
 
             const initAudioOnGesture = (e) => {
-                // If user tapped a mute button directly, skip automatic background music start
                 if (e.target && (e.target.closest('#btn-bgm') || e.target.closest('#btn-sound'))) {
                     return;
                 }
@@ -3485,10 +3785,6 @@
             lucide.createIcons();
             renderLoop();
         };
-
-        window.addEventListener('cloud-sync-ready', async () => {
-            await restoreSavedSession();
-        });
     </script>
 </body>
 </html>
